@@ -27,6 +27,11 @@ class ArtistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+      
+        profileImage.clipsToBounds = true
+        profileImage.layer.borderColor = UIColor.black.cgColor
+        profileImage.layer.borderWidth = 2
       
         profileImage.image = myProfileImage
         bio.text = myBio
