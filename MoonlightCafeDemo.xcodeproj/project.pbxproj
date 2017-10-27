@@ -521,6 +521,7 @@
 				3DA843711FA2CBB300260AAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA843721FA2CBB300260AAA /* Build configuration list for PBXNativeTarget "MoonlightCafeDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +530,7 @@
 				3DA843741FA2CBB300260AAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DA843751FA2CBB300260AAA /* Build configuration list for PBXNativeTarget "MoonlightCafeDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +539,7 @@
 				3DA843771FA2CBB300260AAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

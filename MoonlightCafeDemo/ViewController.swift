@@ -35,11 +35,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     
     switch response.actionIdentifier {
-    case "artist1": performSegue(withIdentifier: "artist", sender: self)
-    case "artist2": print("Artist 2")
-    case "artist3": print("Artist 3")
+    case "artist1": appDelegate.currentArtist = 0
+    case "artist2": appDelegate.currentArtist = 1
+    case "artist3": appDelegate.currentArtist = 2
     default: print("Artist")
     }
+    performSegue(withIdentifier: "artist", sender: self)
     completionHandler()
   }
   

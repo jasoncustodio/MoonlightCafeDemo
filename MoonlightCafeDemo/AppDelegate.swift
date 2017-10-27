@@ -28,10 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     artist1.imageArray[2] = #imageLiteral(resourceName: "Unknown1")
     artist1.imageArray[3] = #imageLiteral(resourceName: "Unknown4")
     
+    let artist2 = Artist()
+    artist2.profileImage = #imageLiteral(resourceName: "Unknown5")
+    artist2.description = "I am dog"
+    artist2.imageArray[0] = #imageLiteral(resourceName: "Unknown6")
+    artist2.imageArray[1] = #imageLiteral(resourceName: "Unknown7")
+    artist2.imageArray[2] = #imageLiteral(resourceName: "Unknown8")
+    artist2.imageArray[3] = #imageLiteral(resourceName: "Unknown9")
+    
+    let artist3 = Artist()
+    artist3.profileImage = #imageLiteral(resourceName: "Unknown10")
+    artist3.description = "I am cool"
+    artist3.imageArray[0] = #imageLiteral(resourceName: "Unknown13")
+    artist3.imageArray[1] = #imageLiteral(resourceName: "Unknown14")
+    artist3.imageArray[2] = #imageLiteral(resourceName: "Unknown11")
+    artist3.imageArray[3] = #imageLiteral(resourceName: "Unknown12")
+    
     
     artist.append(artist1)
-    artist.append(Artist())
-    artist.append(Artist())
+    artist.append(artist2)
+    artist.append(artist3)
     
     return true
   }
