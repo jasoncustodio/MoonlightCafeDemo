@@ -11,11 +11,12 @@ import UserNotifications
 import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
   var artist = [Artist]()
+  
   
   let locationManager = CLLocationManager()
   
@@ -30,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     locationManager.delegate = self
     
     let uuid = UUID(uuidString: "01234567-0123-0123-0123-012345678910")
-    let major = CLBeaconMajorValue(61236)
-    let minor = CLBeaconMinorValue(25536)
+    let majorValue = CLBeaconMajorValue(61236)
+    let minorValue = CLBeaconMinorValue(25536)
     let identifier = "Beacon 1"
     let beaconRegion = CLBeaconRegion(proximityUUID: uuid!,
-                                      major: major,
-                                      minor: minor,
+                                      major: majorValue,
+                                      minor: minorValue,
                                       identifier: identifier)
     
     locationManager.requestAlwaysAuthorization()
@@ -73,11 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     artist.append(artist3)
     
     return true
-  }
-  
-  // Allow notificaiton to popup in the foreground
-  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    completionHandler([.alert, .sound])
   }
   
   func applicationWillResignActive(_ application: UIApplication) {
@@ -131,5 +127,17 @@ extension AppDelegate: CLLocationManagerDelegate {
     
     let request = UNNotificationRequest(identifier: "timer", content: content, trigger: trigger)
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+  }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  
+  // Allow notificaiton to popup in the foreground
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.alert, .sound])
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    completionHandler()
   }
 }
