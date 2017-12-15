@@ -36,10 +36,10 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate, CL
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+    /*
     // Ask notification permission
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-    UNUserNotificationCenter.current().delegate = self
+    UNUserNotificationCenter.current().delegate = self */
   }
   
   override func didReceiveMemoryWarning() {
