@@ -10,6 +10,8 @@ import UIKit
 
 class ArtistTableViewController: UITableViewController {
 
+  @IBOutlet weak var artistTableView: UITableView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
     }

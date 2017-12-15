@@ -37,8 +37,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
   // Allow events based on notification actions
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     
-    if(response.actionIdentifier == "YES")
+    if(response.actionIdentifier == "YES") {
       performSegue(withIdentifier: "artistList", sender: self)
+    }
       
     completionHandler()
   }

@@ -37,7 +37,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="95y-El-yeE" kind="show" id="CoZ-gO-k77"/>
+                        <segue destination="95y-El-yeE" kind="show" identifier="artistList" id="CoZ-gO-k77"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -46,7 +46,7 @@
         <!--Artist View Controller-->
         <scene sceneID="Iu0-uY-lIa">
             <objects>
-                <viewController storyboardIdentifier="artist" id="WI6-k0-OhJ" customClass="ArtistViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WI6-k0-OhJ" customClass="ArtistViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eq9-Ts-PI2"/>
                         <viewControllerLayoutGuide type="bottom" id="6fa-Hy-vuQ"/>
@@ -101,12 +101,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tds-0Z-DB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="36"/>
+            <point key="canvasLocation" x="1834" y="36"/>
         </scene>
         <!--Artist Table View Controller-->
         <scene sceneID="ceH-c4-g2r">
             <objects>
-                <tableViewController storyboardIdentifier="artistList" id="95y-El-yeE" customClass="ArtistTableViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="95y-El-yeE" customClass="ArtistTableViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="8nm-AC-2pL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,10 +143,13 @@
                             <outlet property="delegate" destination="95y-El-yeE" id="THQ-eO-0No"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="artistTableView" destination="8nm-AC-2pL" id="lSQ-2z-HeZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-n6-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="36"/>
+            <point key="canvasLocation" x="942" y="36"/>
         </scene>
     </scenes>
     <resources>
