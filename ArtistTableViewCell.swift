@@ -6,4 +6,12 @@
 //  Copyright © 2017 Jason Custodio. All rights reserved.
 //
 
-import UIKIT
+import UIKit
+
+class ArtistTableViewCell: UITableViewCell {
+
+  @IBOutlet weak var profileImage: UIImageView!
+
+  @IBOutlet weak var name: UILabel!
+  
+}

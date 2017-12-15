@@ -99,18 +99,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tds-0Z-DB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001" y="124"/>
+            <point key="canvasLocation" x="2068" y="36"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Artist Table View Controller-->
         <scene sceneID="ceH-c4-g2r">
             <objects>
-                <tableViewController id="95y-El-yeE" sceneMemberID="viewController">
+                <tableViewController id="95y-El-yeE" customClass="ArtistTableViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="8nm-AC-2pL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="Whx-2y-eVP">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="Whx-2y-eVP" customClass="ArtistTableViewCell" customModule="MoonlightCafeDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Whx-2y-eVP" id="Fp1-zO-5zh">
@@ -130,6 +130,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name" destination="nQu-Ue-VYH" id="TcD-ha-Fwy"/>
+                                    <outlet property="profileImage" destination="jze-ui-2mY" id="JcX-ys-DTY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -140,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-n6-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1070" y="36"/>
         </scene>
     </scenes>
     <resources>
