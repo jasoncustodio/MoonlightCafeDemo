@@ -14,4 +14,9 @@ class ArtistTableViewCell: UITableViewCell {
 
   @IBOutlet weak var descriptionLabel: UILabel!
 
+  func setArtist(artist: Artist) {
+    profileImageView.image = artist.profileImage
+    descriptionLabel.text = artist.description
+  }
+
 }
