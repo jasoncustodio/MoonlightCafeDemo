@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController, UNUserNotificationCenterDelegate {
+class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
   
   @IBAction func sendNotification(_ sender: Any) {
     createAlert(title: "Moonlight Cafe", subtitle: "SWIPE ME!", body: "Choose An Artist!")
