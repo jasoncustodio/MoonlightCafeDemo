@@ -27,22 +27,21 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     artistController.myImage4 = appDelegate.artist[appDelegate.currentArtist].imageArray[3]
     
   }
-  */
- 
+*/
+
   // Allow notificaiton to popup in the foreground
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    performSegue(withIdentifier: "artistList", sender: self)
     completionHandler([.alert, .sound])
   }
   
-  /*
   // Allow events based on notification actions
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     
-    
+    if(response.actionIdentifier == "YES")
+      performSegue(withIdentifier: "artistList", sender: self)
+      
     completionHandler()
   }
- */
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,6 +61,13 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
 // Create alert template
 func createAlert(title: String, subtitle: String, body: String) {
+  
+  // Create Notification Actions
+  let yesButton = UNNotificationAction(identifier: "YES", title: "YES", options: .foreground)
+  let noButton = UNNotificationAction(identifier: "NO", title: "NO", options: .foreground)
+  
+  let category = UNNotificationCategory(identifier: "artistList", actions: [yesButton, noButton], intentIdentifiers: [], options: [])
+  UNUserNotificationCenter.current().setNotificationCategories([category])
   
   // Create A Notification
   let content = UNMutableNotificationContent()
