@@ -12,7 +12,7 @@ import UserNotifications
 class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
   
   @IBAction func sendNotification(_ sender: Any) {
-    createAlert(title: "Moonlight Cafe", subtitle: "SWIPE ME!", body: "Choose An Artist!")
+    createAlert(title: "Moonlight Cafe", subtitle: "SWIPE ME!", body: "Would you like to view Artists?")
   }
   
   /*
@@ -36,11 +36,9 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
   
   // Allow events based on notification actions
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    
     if(response.actionIdentifier == "YES") {
       performSegue(withIdentifier: "artistList", sender: self)
     }
-      
     completionHandler()
   }
   
@@ -49,7 +47,6 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     // Ask notification permission
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-    
     UNUserNotificationCenter.current().delegate = self
   }
 
