@@ -31,13 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     locationManager.delegate = self
     
     let uuid = UUID(uuidString: "01234567-0123-0123-0123-012345678910")
-    let majorValue = CLBeaconMajorValue(61236)
-    let minorValue = CLBeaconMinorValue(25536)
+    //let majorValue = CLBeaconMajorValue(61236)
+    //let minorValue = CLBeaconMinorValue(25536)
     let identifier = "Beacon 1"
-    let beaconRegion = CLBeaconRegion(proximityUUID: uuid!,
+    /*let beaconRegion = CLBeaconRegion(proximityUUID: uuid!,
                                       major: majorValue,
                                       minor: minorValue,
-                                      identifier: identifier)
+                                      identifier: identifier) */
+    
+    let beaconRegion = CLBeaconRegion(proximityUUID: uuid!, identifier: identifier)
     
     locationManager.requestAlwaysAuthorization()
     locationManager.delegate = self
@@ -109,6 +111,9 @@ extension UIStoryboard {
 extension AppDelegate: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
     // Create Notification Actions
+    
+   print("FOUND BEACON")
+    
     let yesButton = UNNotificationAction(identifier: "YES", title: "YES", options: .foreground)
     let noButton = UNNotificationAction(identifier: "NO", title: "NO", options: .foreground)
     
