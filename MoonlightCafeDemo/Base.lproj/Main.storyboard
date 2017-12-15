@@ -86,6 +86,9 @@
                                 <rect key="frame" x="170" y="440" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="95y-El-yeE" kind="show" id="NzF-6l-ate"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,13 +104,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tds-0Z-DB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="36"/>
+            <point key="canvasLocation" x="1980" y="123"/>
         </scene>
         <!--Artist Table View Controller-->
         <scene sceneID="ceH-c4-g2r">
             <objects>
                 <tableViewController id="95y-El-yeE" customClass="ArtistTableViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="8nm-AC-2pL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="8nm-AC-2pL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,20 +122,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jze-ui-2mY">
-                                            <rect key="frame" x="135" y="15" width="100" height="100"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGI-jy-VYU">
+                                            <rect key="frame" x="8" y="15" width="360" height="120"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-Ue-VYH">
-                                            <rect key="frame" x="165" y="120" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jze-ui-2mY">
+                                                    <rect key="frame" x="135" y="8" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-Ue-VYH">
+                                                    <rect key="frame" x="135" y="95" width="90" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="artistView" destination="dGI-jy-VYU" id="0gu-1Q-n99"/>
                                     <outlet property="descriptionLabel" destination="nQu-Ue-VYH" id="wOx-hF-zkT"/>
                                     <outlet property="profileImageView" destination="jze-ui-2mY" id="56l-gG-Kuo"/>
                                 </connections>
@@ -145,14 +156,18 @@
                     </tableView>
                     <connections>
                         <outlet property="artistTableView" destination="8nm-AC-2pL" id="lSQ-2z-HeZ"/>
+                        <segue destination="WI6-k0-OhJ" kind="showDetail" identifier="artistDetail" id="Mua-bj-cOZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-n6-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="36"/>
+            <point key="canvasLocation" x="980" y="123"/>
         </scene>
     </scenes>
     <resources>
         <image name="Moon" width="258" height="129"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NzF-6l-ate"/>
+    </inferredMetricsTieBreakers>
 </document>

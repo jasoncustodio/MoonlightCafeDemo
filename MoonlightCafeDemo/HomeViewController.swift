@@ -8,27 +8,18 @@
 
 import UIKit
 import UserNotifications
+import CoreLocation
 
-class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
+class HomeViewController: UIViewController, UNUserNotificationCenterDelegate, CLLocationManagerDelegate {
+  
+  
+  var locationManager: CLLocationManager = CLLocationManager()
+ 
   
   @IBAction func sendNotification(_ sender: Any) {
     createAlert(title: "Moonlight Cafe", subtitle: "SWIPE ME!", body: "Would you like to view Artists?")
   }
   
-  /*
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let artistController = segue.destination as! ArtistViewController
-    
-    artistController.myProfileImage = appDelegate.artist[appDelegate.currentArtist].profileImage!
-    artistController.myBio = appDelegate.artist[appDelegate.currentArtist].description
-    artistController.myImage1 = appDelegate.artist[appDelegate.currentArtist].imageArray[0]
-    artistController.myImage2 = appDelegate.artist[appDelegate.currentArtist].imageArray[1]
-    artistController.myImage3 = appDelegate.artist[appDelegate.currentArtist].imageArray[2]
-    artistController.myImage4 = appDelegate.artist[appDelegate.currentArtist].imageArray[3]
-    
-  }
-*/
-
   // Allow notificaiton to popup in the foreground
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert, .sound])
@@ -45,16 +36,17 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
     // Ask notification permission
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
     UNUserNotificationCenter.current().delegate = self
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
+  
 }
 
 // Create alert template
