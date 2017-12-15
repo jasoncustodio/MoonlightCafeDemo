@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D76E0921FE36B5800E5E2ED /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0911FE36B5800E5E2ED /* ArtistTableViewCell.swift */; };
 		3D76E0941FE36C3E00E5E2ED /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */; };
 		3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */; };
 		3DA8434D1FA2CBB300260AAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D76E0911FE36B5800E5E2ED /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistTableViewCell.swift; path = ../ArtistTableViewCell.swift; sourceTree = "<group>"; };
 		3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
 		3DA843471FA2CBB300260AAA /* MoonlightCafeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonlightCafeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			children = (
 				3DA8434E1FA2CBB300260AAA /* Main.storyboard */,
 				3DA843791FA2FAE000260AAA /* Artist.swift */,
-				3D76E0911FE36B5800E5E2ED /* ArtistTableViewCell.swift */,
 				3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */,
 				3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */,
 				3DA8437B1FA2FE0A00260AAA /* ArtistViewController.swift */,
@@ -282,7 +279,6 @@
 				3DA8434D1FA2CBB300260AAA /* HomeViewController.swift in Sources */,
 				3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */,
 				3D76E0941FE36C3E00E5E2ED /* ArtistTableViewController.swift in Sources */,
-				3D76E0921FE36B5800E5E2ED /* ArtistTableViewCell.swift in Sources */,
 				3DA8437A1FA2FAE000260AAA /* Artist.swift in Sources */,
 				3DA8437C1FA2FE0A00260AAA /* ArtistViewController.swift in Sources */,
 			);
