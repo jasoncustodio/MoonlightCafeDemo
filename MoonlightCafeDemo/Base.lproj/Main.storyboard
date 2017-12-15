@@ -131,8 +131,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="name" destination="nQu-Ue-VYH" id="TcD-ha-Fwy"/>
-                                    <outlet property="profileImage" destination="jze-ui-2mY" id="JcX-ys-DTY"/>
+                                    <outlet property="descriptionLabel" destination="nQu-Ue-VYH" id="wOx-hF-zkT"/>
+                                    <outlet property="profileImageView" destination="jze-ui-2mY" id="56l-gG-Kuo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-n6-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="36"/>
+            <point key="canvasLocation" x="1162" y="36"/>
         </scene>
     </scenes>
     <resources>
