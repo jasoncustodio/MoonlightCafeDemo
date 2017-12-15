@@ -8,13 +8,9 @@
 
 import UIKit
 import UserNotifications
-import CoreLocation
 
-class HomeViewController: UIViewController, UNUserNotificationCenterDelegate, CLLocationManagerDelegate {
-  
-  
-  var locationManager: CLLocationManager = CLLocationManager()
- 
+
+class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
   
   @IBAction func sendNotification(_ sender: Any) {
     createAlert(title: "Moonlight Cafe", subtitle: "SWIPE ME!", body: "Would you like to view Artists?")
@@ -36,10 +32,10 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate, CL
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    /*
+    
     // Ask notification permission
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-    UNUserNotificationCenter.current().delegate = self */
+    UNUserNotificationCenter.current().delegate = self
   }
   
   override func didReceiveMemoryWarning() {

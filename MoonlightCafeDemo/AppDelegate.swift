@@ -17,32 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var artist = [Artist]()
   
+
   
-  let locationManager = CLLocationManager()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+      let locationManager = CLLocationManager()
     
     let center = UNUserNotificationCenter.current()
     center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in} )
     center.delegate = self
     
-    
     locationManager.delegate = self
+    locationManager.requestAlwaysAuthorization()
     
     let uuid = UUID(uuidString: "01234567-0123-0123-0123-012345678910")
-    //let majorValue = CLBeaconMajorValue(61236)
-    //let minorValue = CLBeaconMinorValue(25536)
+ 
     let identifier = "Beacon 1"
-    /*let beaconRegion = CLBeaconRegion(proximityUUID: uuid!,
-                                      major: majorValue,
-                                      minor: minorValue,
-                                      identifier: identifier) */
-    
+
     let beaconRegion = CLBeaconRegion(proximityUUID: uuid!, identifier: identifier)
     
-    locationManager.requestAlwaysAuthorization()
-    locationManager.delegate = self
+    
+  
     
     locationManager.startMonitoring(for: beaconRegion)
     
@@ -112,13 +109,8 @@ extension AppDelegate: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
     // Create Notification Actions
     
-   print("FOUND BEACON")
+    print("FOUND BEACON")
     
-    let yesButton = UNNotificationAction(identifier: "YES", title: "YES", options: .foreground)
-    let noButton = UNNotificationAction(identifier: "NO", title: "NO", options: .foreground)
-    
-    let category = UNNotificationCategory(identifier: "artistList", actions: [yesButton, noButton], intentIdentifiers: [], options: [])
-    UNUserNotificationCenter.current().setNotificationCategories([category])
     
     // Create A Notification
     let content = UNMutableNotificationContent()
@@ -126,7 +118,6 @@ extension AppDelegate: CLLocationManagerDelegate {
     content.subtitle = "3r3er3"
     content.body = "3324343"
     content.badge = 1
-    content.categoryIdentifier = "artistList"
     
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     
