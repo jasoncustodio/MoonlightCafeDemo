@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     createAlert(title: "Moonlight Cafe", subtitle: "SWIPE ME!", body: "Choose An Artist!")
   }
   
+  /*
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let artistController = segue.destination as! ArtistViewController
     
@@ -26,23 +27,22 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     artistController.myImage4 = appDelegate.artist[appDelegate.currentArtist].imageArray[3]
     
   }
+  */
+ 
   // Allow notificaiton to popup in the foreground
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    performSegue(withIdentifier: "artistList", sender: self)
     completionHandler([.alert, .sound])
   }
   
+  /*
   // Allow events based on notification actions
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     
-    switch response.actionIdentifier {
-    case "artist1": appDelegate.currentArtist = 0
-    case "artist2": appDelegate.currentArtist = 1
-    case "artist3": appDelegate.currentArtist = 2
-    default: print("Artist")
-    }
-    performSegue(withIdentifier: "artist", sender: self)
+    
     completionHandler()
   }
+ */
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,14 +62,6 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
 // Create alert template
 func createAlert(title: String, subtitle: String, body: String) {
-  
-  // Create Notification Actions
-  let artist1 = UNNotificationAction(identifier: "artist1", title: "Artist 1", options: .foreground)
-  let artist2 = UNNotificationAction(identifier: "artist2", title: "Artist 2", options: .foreground)
-  let artist3 = UNNotificationAction(identifier: "artist3", title: "Artist 3", options: .foreground)
-  
-  let category = UNNotificationCategory(identifier: "artistList", actions: [artist1, artist2, artist3], intentIdentifiers: [], options: [])
-  UNUserNotificationCenter.current().setNotificationCategories([category])
   
   // Create A Notification
   let content = UNMutableNotificationContent()

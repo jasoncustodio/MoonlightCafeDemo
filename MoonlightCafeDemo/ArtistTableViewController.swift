@@ -26,11 +26,11 @@ class ArtistTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let artist = appDelegate.artist.[indexPath.row]
+        let artist = appDelegate.artist[indexPath.row]
         let dequeued = tableView.dequeueReusableCell(withIdentifier: "ArtistCell", for: indexPath)
         let cell = dequeued as! ArtistTableViewCell             
         
-        cell.setArtist(artist)
+        cell.setArtist(artist: artist)
        
         return cell
     }
@@ -81,10 +81,4 @@ class ArtistTableViewController: UITableViewController {
     }
     */
 
-}
-
-extension UITableViewController {
-  var appDelegate: AppDelegate {
-    return UIApplication.shared.delegate as! AppDelegate
-  }
 }
