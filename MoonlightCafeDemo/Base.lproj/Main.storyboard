@@ -109,7 +109,7 @@
         <!--Artist Table View Controller-->
         <scene sceneID="ceH-c4-g2r">
             <objects>
-                <tableViewController id="95y-El-yeE" customClass="ArtistTableViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ArtistTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="95y-El-yeE" customClass="ArtistTableViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="8nm-AC-2pL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,6 +168,6 @@
         <image name="Moon" width="258" height="129"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NzF-6l-ate"/>
+        <segue reference="CoZ-gO-k77"/>
     </inferredMetricsTieBreakers>
 </document>

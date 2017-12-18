@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-import CoreLocation
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,31 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var artist = [Artist]()
   
-
-  
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-      let locationManager = CLLocationManager()
     
     let center = UNUserNotificationCenter.current()
     center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in} )
     center.delegate = self
-    
-    locationManager.delegate = self
-    locationManager.requestAlwaysAuthorization()
-    
-    let uuid = UUID(uuidString: "01234567-0123-0123-0123-012345678910")
- 
-    let identifier = "Beacon 1"
-
-    let beaconRegion = CLBeaconRegion(proximityUUID: uuid!, identifier: identifier)
-    
-    
-  
-    
-    locationManager.startMonitoring(for: beaconRegion)
     
     let artist1 = Artist()
     artist1.profileImage = #imageLiteral(resourceName: "Unknown")
@@ -95,45 +77,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-  }
-}
-
-extension UIStoryboard {
-  public class func getMainStoryboard() -> UIStoryboard {
-    return UIStoryboard(name: "Main", bundle: nil)
-  }
-  
-}
-
-extension AppDelegate: CLLocationManagerDelegate {
-  func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-    // Create Notification Actions
-    
-    print("FOUND BEACON")
-    
-    
-    // Create A Notification
-    let content = UNMutableNotificationContent()
-    content.title = "TEst1"
-    content.subtitle = "3r3er3"
-    content.body = "3324343"
-    content.badge = 1
-    
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-    
-    let request = UNNotificationRequest(identifier: "timer", content: content, trigger: trigger)
-    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-  }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-  
-  // Allow notificaiton to popup in the foreground
-  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    completionHandler([.alert, .sound])
-  }
-  
-  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    completionHandler()
   }
 }
