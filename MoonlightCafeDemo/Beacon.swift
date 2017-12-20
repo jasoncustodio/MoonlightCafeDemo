@@ -20,8 +20,8 @@ struct Beacon {
     self.minor = minor
   }
   
-  init(uuid: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue) {
-    self.init(uuid: UUID(uuidString: uuid)!, major: major, minor: minor)
+  init(uuidString: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue) {
+    self.init(uuid: UUID(uuidString: uuidString)!, major: major, minor: minor)
   }
   
   var asString: String {
