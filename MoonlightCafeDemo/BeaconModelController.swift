@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class BeaconNotificationsManager: NSObject, ESTBeaconManagerDelegate {
+class BeaconModelController: NSObject, ESTBeaconManagerDelegate {
   
   //Create instance of beacon manager from the Estimote Framework
   private let beaconManager = ESTBeaconManager()
