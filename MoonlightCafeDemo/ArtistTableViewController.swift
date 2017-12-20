@@ -13,9 +13,14 @@ class ArtistTableViewController: UITableViewController {
   @IBOutlet weak var artistTableView: UITableView!
   
   var selectedArtist: Artist?
+  var selectedArtistList: [Artist] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.selectedArtistList = appDelegate.beaconManager.fetchArtistList()
   }
   
   override func didReceiveMemoryWarning() {
@@ -23,12 +28,12 @@ class ArtistTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return appDelegate.artist.count
+    return selectedArtistList.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let artist = appDelegate.artist[indexPath.row]
+    let artist = selectedArtistList[indexPath.row]
     let dequeued = tableView.dequeueReusableCell(withIdentifier: "ArtistCell", for: indexPath)
     let cell = dequeued as! ArtistTableViewCell
     
@@ -38,7 +43,7 @@ class ArtistTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let artist = appDelegate.artist[indexPath.row]
+    let artist = selectedArtistList[indexPath.row]
     
     selectedArtist = artist
     

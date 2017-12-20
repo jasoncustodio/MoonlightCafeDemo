@@ -15,45 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  var artist = [Artist]()
-  
-  let beaconManager = BeaconModelController()
+  let beaconManager = BeaconRegionModelController()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-        let center = UNUserNotificationCenter.current()
+    let center = UNUserNotificationCenter.current()
     center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in} )
     center.delegate = self
-    
-    let artist1 = Artist()
-    artist1.profileImage = #imageLiteral(resourceName: "Unknown")
-    artist1.description = "I am cat"
-    artist1.imageArray[0] = #imageLiteral(resourceName: "Unknown3")
-    artist1.imageArray[1] = #imageLiteral(resourceName: "Unknown2")
-    artist1.imageArray[2] = #imageLiteral(resourceName: "Unknown1")
-    artist1.imageArray[3] = #imageLiteral(resourceName: "Unknown4")
-    
-    let artist2 = Artist()
-    artist2.profileImage = #imageLiteral(resourceName: "Unknown5")
-    artist2.description = "I am dog"
-    artist2.imageArray[0] = #imageLiteral(resourceName: "Unknown6")
-    artist2.imageArray[1] = #imageLiteral(resourceName: "Unknown7")
-    artist2.imageArray[2] = #imageLiteral(resourceName: "Unknown8")
-    artist2.imageArray[3] = #imageLiteral(resourceName: "Unknown9")
-    
-    let artist3 = Artist()
-    artist3.profileImage = #imageLiteral(resourceName: "Unknown10")
-    artist3.description = "I am cool"
-    artist3.imageArray[0] = #imageLiteral(resourceName: "Unknown13")
-    artist3.imageArray[1] = #imageLiteral(resourceName: "Unknown14")
-    artist3.imageArray[2] = #imageLiteral(resourceName: "Unknown11")
-    artist3.imageArray[3] = #imageLiteral(resourceName: "Unknown12")
-    
-    
-    artist.append(artist1)
-    artist.append(artist2)
-    artist.append(artist3)
     
     return true
   }

@@ -22,4 +22,14 @@ class Artist {
     imageArray.append(UIImage())
     imageArray.append(UIImage())
   }
+  
+  init(profileImage: UIImage, description: String) {
+    self.profileImage = profileImage
+    self.description = description
+    imageArray.append(UIImage())
+    imageArray.append(UIImage())
+    imageArray.append(UIImage())
+    imageArray.append(UIImage())
+  }
+  
 }
