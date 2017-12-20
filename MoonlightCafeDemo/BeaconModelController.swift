@@ -31,10 +31,12 @@ class BeaconModelController: NSObject, ESTBeaconManagerDelegate {
   // Obtain beacon information
   private func getBeaconData() {
     
-    let beacon1 = Beacon(uuidString: "01234567-0123-0123-0123-012345678910", major: 42296, minor: 25327)
-    let beacon2 = Beacon(uuidString: "01234567-0123-0123-0123-012345678910", major: 22179, minor: 32626)
-    let beacon3 = Beacon(uuidString: "01234567-0123-0123-0123-012345678910", major: 54381, minor: 53700)
-    let beacon4 = Beacon(uuidString: "01234567-0123-0123-0123-012345678910", major: 61236, minor: 25536)
+    let uuid = "01234567-0123-0123-0123-012345678910"
+    
+    let beacon1 = Beacon(uuidString: uuid, major: 42296, minor: 25327)
+    let beacon2 = Beacon(uuidString: uuid, major: 22179, minor: 32626)
+    let beacon3 = Beacon(uuidString: uuid, major: 54381, minor: 53700)
+    let beacon4 = Beacon(uuidString: uuid, major: 25140, minor: 11960)
     
     self.beaconList.append(beacon1)
     self.beaconList.append(beacon2)
