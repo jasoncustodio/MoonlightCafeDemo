@@ -36,7 +36,7 @@ class BeaconModelController: NSObject, ESTBeaconManagerDelegate {
     let beacon1 = Beacon(uuidString: uuid, major: 42296, minor: 25327)
     let beacon2 = Beacon(uuidString: uuid, major: 22179, minor: 32626)
     let beacon3 = Beacon(uuidString: uuid, major: 54381, minor: 53700)
-    let beacon4 = Beacon(uuidString: uuid, major: 25140, minor: 11960)
+    let beacon4 = Beacon(uuidString: uuid, major: 25140, minor: 11960		)
     
     self.beaconList.append(beacon1)
     self.beaconList.append(beacon2)
