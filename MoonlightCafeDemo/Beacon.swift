@@ -9,7 +9,31 @@
 import Foundation
 
 struct Beacon {
-  let proximity: UUID
+  
+  let uuid: UUID
   let major: CLBeaconMajorValue
   let minor: CLBeaconMinorValue
+  
+  init(uuid: UUID, major: CLBeaconMajorValue, minor: CLBeaconMinorValue) {
+    self.uuid = uuid
+    self.major = major
+    self.minor = minor
+  }
+  
+  init(uuid: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue) {
+    self.init(uuid: UUID(uuidString: uuid)!, major: major, minor: minor)
+  }
+  
+  var asString: String {
+    get {
+      return "\(uuid.uuidString):\(major):\(minor)"
+    }
+  }
+  
+  var asBeaconRegion: CLBeaconRegion {
+    get {
+      return CLBeaconRegion(proximityUUID: self.uuid, major: self.major, minor: self.minor, identifier: self.asString)
+    }
+  }
+  
 }
