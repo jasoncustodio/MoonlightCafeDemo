@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,6 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="118" y="123"/>
         </scene>
         <!--Artist View Controller-->
         <scene sceneID="Iu0-uY-lIa">
@@ -87,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="95y-El-yeE" kind="show" id="NzF-6l-ate"/>
+                                    <segue destination="95y-El-yeE" kind="show" identifier="artistList" id="NzF-6l-ate"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -154,6 +155,8 @@
                             <outlet property="delegate" destination="95y-El-yeE" id="THQ-eO-0No"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="artistTableView" destination="8nm-AC-2pL" id="lSQ-2z-HeZ"/>
                         <segue destination="WI6-k0-OhJ" kind="showDetail" identifier="artistDetail" id="Mua-bj-cOZ"/>
@@ -161,13 +164,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-n6-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="123"/>
+            <point key="canvasLocation" x="980" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
         <image name="Moon" width="258" height="129"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CoZ-gO-k77"/>
+        <segue reference="NzF-6l-ate"/>
     </inferredMetricsTieBreakers>
 </document>

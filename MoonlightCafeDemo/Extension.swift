@@ -36,6 +36,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       
       let rootViewController = self.window!.rootViewController
       rootViewController?.doSegue()
+        
+       // let navigationController = self.window?.rootViewController as? UINavigationController
+        //let initialViewController = navigationController?.viewControllers.first
+        
+        //initialViewController?.doSegue()
       
     }
     completionHandler()
