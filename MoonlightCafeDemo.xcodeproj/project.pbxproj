@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D2F3FC81FE85FAF0036B5F9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F3FC71FE85FAF0036B5F9 /* Notification.swift */; };
 		3D2F3FCD1FE865B80036B5F9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F3FCC1FE865B80036B5F9 /* Extension.swift */; };
+		3D4F7CDB1FE9ED6500F4E313 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */; };
 		3D76E0941FE36C3E00E5E2ED /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */; };
 		3D76E0981FE37A6900E5E2ED /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */; };
 		3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 		3DA8436B1FA2CBB300260AAA /* MoonlightCafeDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8436A1FA2CBB300260AAA /* MoonlightCafeDemoUITests.swift */; };
 		3DA8437A1FA2FAE000260AAA /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA843791FA2FAE000260AAA /* Artist.swift */; };
 		3DA8437C1FA2FE0A00260AAA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8437B1FA2FE0A00260AAA /* ArtistViewController.swift */; };
+		3DF1049F1FE9F72300A9B611 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF1049E1FE9F72300A9B611 /* EstimoteSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* Begin PBXFileReference section */
 		3D2F3FC71FE85FAF0036B5F9 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3D2F3FCC1FE865B80036B5F9 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
 		3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
 		3DA843471FA2CBB300260AAA /* MoonlightCafeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonlightCafeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +62,8 @@
 		3DA8436C1FA2CBB300260AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA843791FA2FAE000260AAA /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3DA8437B1FA2FE0A00260AAA /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		3DF1049E1FE9F72300A9B611 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
+		3DF104A01FE9F78E00A9B611 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF1049F1FE9F72300A9B611 /* EstimoteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +97,20 @@
 			children = (
 				3DA843791FA2FAE000260AAA /* Artist.swift */,
 				3D2F3FC71FE85FAF0036B5F9 /* Notification.swift */,
+				3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		3D4F7CD91FE9E96300F4E313 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */,
+				3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */,
+				3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */,
+				3DA8437B1FA2FE0A00260AAA /* ArtistViewController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		3DA8433E1FA2CBB200260AAA = {
@@ -119,11 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				3DA8434E1FA2CBB300260AAA /* Main.storyboard */,
-				3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */,
-				3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */,
-				3DA8437B1FA2FE0A00260AAA /* ArtistViewController.swift */,
-				3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */,
 				3D2F3FCC1FE865B80036B5F9 /* Extension.swift */,
+				3D4F7CD91FE9E96300F4E313 /* ViewController */,
 				3D2F3FCB1FE860A20036B5F9 /* Models */,
 				3DA843781FA2CBC600260AAA /* Supporting Files */,
 			);
@@ -151,10 +166,12 @@
 		3DA843781FA2CBC600260AAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3DF1049E1FE9F72300A9B611 /* EstimoteSDK.framework */,
 				3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */,
 				3DA843561FA2CBB300260AAA /* Info.plist */,
 				3DA843531FA2CBB300260AAA /* LaunchScreen.storyboard */,
 				3DA843511FA2CBB300260AAA /* Assets.xcassets */,
+				3DF104A01FE9F78E00A9B611 /* ObjCBridge.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -298,6 +315,7 @@
 				3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */,
 				3D76E0941FE36C3E00E5E2ED /* ArtistTableViewController.swift in Sources */,
 				3D2F3FC81FE85FAF0036B5F9 /* Notification.swift in Sources */,
+				3D4F7CDB1FE9ED6500F4E313 /* Beacon.swift in Sources */,
 				3DA8437A1FA2FAE000260AAA /* Artist.swift in Sources */,
 				3D76E0981FE37A6900E5E2ED /* ArtistTableViewCell.swift in Sources */,
 				3DA8437C1FA2FE0A00260AAA /* ArtistViewController.swift in Sources */,
@@ -452,10 +470,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MoonlightCafeDemo",
+				);
 				INFOPLIST_FILE = MoonlightCafeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JMC.MoonlightCafeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = MoonlightCafeDemo/ObjCBridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -464,10 +487,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MoonlightCafeDemo",
+				);
 				INFOPLIST_FILE = MoonlightCafeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JMC.MoonlightCafeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = MoonlightCafeDemo/ObjCBridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

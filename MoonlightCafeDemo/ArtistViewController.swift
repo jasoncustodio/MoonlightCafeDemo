@@ -19,9 +19,7 @@ class ArtistViewController: UIViewController {
   
   var artist: Artist?
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
+  func setImage() {
     profileImage.layer.cornerRadius = profileImage.frame.size.width/2
     
     profileImage.clipsToBounds = true
@@ -37,8 +35,13 @@ class ArtistViewController: UIViewController {
     image4.image = artist?.imageArray[3]
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    setImage()
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 }
