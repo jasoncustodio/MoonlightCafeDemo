@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Beacon {
+struct Beacon: Equatable {
   
   let uuid: UUID
   let major: CLBeaconMajorValue
@@ -35,11 +35,11 @@ struct Beacon {
       return CLBeaconRegion(proximityUUID: self.uuid, major: self.major, minor: self.minor, identifier: self.asString)
     }
   }
-
-  func ==(lhs: BeaconID, rhs: BeaconID) -> Bool {
-    return lhs.proximityUUID == rhs.proximityUUID
-        && lhs.major == rhs.major
-        && lhs.minor == rhs.minor
-}
+  
+  static func ==(lhs: Beacon, rhs: Beacon) -> Bool {
+    return lhs.uuid == rhs.uuid
+      && lhs.major == rhs.major
+      && lhs.minor == rhs.minor
+  }
   
 }
