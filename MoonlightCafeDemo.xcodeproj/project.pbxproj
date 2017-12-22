@@ -107,6 +107,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		3D471D301FECB22A00E7EC95 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D2F3FCC1FE865B80036B5F9 /* Extension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		3D4F7CD91FE9E96300F4E313 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,10 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				3DA8434E1FA2CBB300260AAA /* Main.storyboard */,
-				3D2F3FCC1FE865B80036B5F9 /* Extension.swift */,
 				3D4F7CD91FE9E96300F4E313 /* ViewController */,
 				3DF104A21FE9FC0C00A9B611 /* ModelController */,
 				3D2F3FCB1FE860A20036B5F9 /* Models */,
+				3D471D301FECB22A00E7EC95 /* Extensions */,
 				3DA843781FA2CBC600260AAA /* Supporting Files */,
 			);
 			path = MoonlightCafeDemo;

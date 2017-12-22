@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,38 +57,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evx-dL-qsh">
-                                <rect key="frame" x="110" y="40" width="150" height="150"/>
+                                <rect key="frame" x="120" y="50" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cn2-i0-tyk">
-                                <rect key="frame" x="67" y="225" width="100" height="80"/>
+                                <rect key="frame" x="70" y="225" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ev1-w2-c50">
-                                <rect key="frame" x="207" y="225" width="100" height="80"/>
+                                <rect key="frame" x="200" y="225" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-VY-Tfu">
-                                <rect key="frame" x="67" y="336" width="100" height="80"/>
+                                <rect key="frame" x="70" y="350" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LM0-hJ-RAT">
-                                <rect key="frame" x="207" y="336" width="100" height="80"/>
+                                <rect key="frame" x="200" y="350" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msg-9f-Jc4">
-                                <rect key="frame" x="122" y="195" width="130" height="21"/>
+                                <rect key="frame" x="130" y="200" width="130" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0g-J4-yZM">
-                                <rect key="frame" x="170" y="440" width="34" height="30"/>
+                                <rect key="frame" x="133" y="497" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="View Other Artists"/>
                                 <connections>
-                                    <segue destination="95y-El-yeE" kind="show" identifier="artistList" id="NzF-6l-ate"/>
+                                    <segue destination="95y-El-yeE" kind="show" identifier="" id="NzF-6l-ate"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,6 +101,7 @@
                         <outlet property="image3" destination="5MU-VY-Tfu" id="fpF-Fc-4rO"/>
                         <outlet property="image4" destination="LM0-hJ-RAT" id="ssF-DM-soq"/>
                         <outlet property="profileImage" destination="evx-dL-qsh" id="Cwv-uq-2XW"/>
+                        <segue destination="95y-El-yeE" kind="show" identifier="artistList" id="6KF-qM-g0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tds-0Z-DB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,15 +117,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="160" id="Whx-2y-eVP" customClass="ArtistTableViewCell" customModule="MoonlightCafeDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="190" id="Whx-2y-eVP" customClass="ArtistTableViewCell" customModule="MoonlightCafeDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="190"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Whx-2y-eVP" id="Fp1-zO-5zh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGI-jy-VYU">
-                                            <rect key="frame" x="8" y="15" width="360" height="120"/>
+                                            <rect key="frame" x="8" y="40" width="360" height="120"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jze-ui-2mY">
@@ -171,6 +172,6 @@
         <image name="Moon" width="258" height="129"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NzF-6l-ate"/>
+        <segue reference="CoZ-gO-k77"/>
     </inferredMetricsTieBreakers>
 </document>
