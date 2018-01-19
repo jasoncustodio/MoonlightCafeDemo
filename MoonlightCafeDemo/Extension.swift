@@ -33,14 +33,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   // Allow events based on notification actions
   public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     if(response.actionIdentifier == "YES") {
-      
-      let rootViewController = self.window!.rootViewController
-      rootViewController?.doSegue()
+    
         
-       // let navigationController = self.window?.rootViewController as? UINavigationController
-        //let initialViewController = navigationController?.viewControllers.first
+        let navigationController = self.window?.rootViewController as? UINavigationController
+        let initialViewController = navigationController?.viewControllers.first
         
-        //initialViewController?.doSegue()
+        initialViewController?.doSegue()
       
     }
     completionHandler()

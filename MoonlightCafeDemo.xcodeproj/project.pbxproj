@@ -12,6 +12,7 @@
 		3D4F7CDB1FE9ED6500F4E313 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */; };
 		3D76E0941FE36C3E00E5E2ED /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */; };
 		3D76E0981FE37A6900E5E2ED /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */; };
+		3D7DCA7C2011BA300043C8B1 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DCA7B2011BA300043C8B1 /* APICall.swift */; };
 		3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */; };
 		3DA8434D1FA2CBB300260AAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */; };
 		3DA843501FA2CBB300260AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA8434E1FA2CBB300260AAA /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		3D76E0931FE36C3E00E5E2ED /* ArtistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
 		3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		3D7DCA7B2011BA300043C8B1 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		3DA843471FA2CBB300260AAA /* MoonlightCafeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonlightCafeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3D2F3FC71FE85FAF0036B5F9 /* Notification.swift */,
 				3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */,
 				3DF104A51FEA353400A9B611 /* BeaconRegion.swift */,
+				3D7DCA7B2011BA300043C8B1 /* APICall.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			files = (
 				3D2F3FCD1FE865B80036B5F9 /* Extension.swift in Sources */,
 				3DA8434D1FA2CBB300260AAA /* HomeViewController.swift in Sources */,
+				3D7DCA7C2011BA300043C8B1 /* APICall.swift in Sources */,
 				3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */,
 				3D76E0941FE36C3E00E5E2ED /* ArtistTableViewController.swift in Sources */,
 				3D2F3FC81FE85FAF0036B5F9 /* Notification.swift in Sources */,

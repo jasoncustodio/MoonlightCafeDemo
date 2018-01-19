@@ -33,6 +33,10 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
   // Obtain beacon information
   private func getBeaconData() {
     
+    let boop = APICall()
+    
+    boop.getBeaconData();
+    
     let uuid = "01234567-0123-0123-0123-012345678910"
     
     let beacon1 = Beacon(uuidString: uuid, major: 54381, minor: 53700)

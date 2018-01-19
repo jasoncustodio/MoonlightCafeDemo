@@ -15,7 +15,11 @@ class ArtistTableViewController: UITableViewController {
     
     var selectedArtist: Artist?
     var selectedArtistList: [Artist] = []
+  
+    @IBAction func unwindSegue(_ sender: UIStoryboardSegue) {
     
+    }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dpg-Sw-URW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,13 +36,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="MAX-Bm-jre"/>
                     <connections>
                         <segue destination="95y-El-yeE" kind="show" identifier="artistList" id="CoZ-gO-k77"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="123"/>
+            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
         </scene>
         <!--Artist View Controller-->
         <scene sceneID="Iu0-uY-lIa">
@@ -88,7 +89,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View Other Artists"/>
                                 <connections>
-                                    <segue destination="95y-El-yeE" kind="show" identifier="" id="NzF-6l-ate"/>
+                                    <segue destination="J4n-I8-vRH" kind="unwind" unwindAction="unwindSegue:" id="qiI-uW-Vio"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,12 +102,12 @@
                         <outlet property="image3" destination="5MU-VY-Tfu" id="fpF-Fc-4rO"/>
                         <outlet property="image4" destination="LM0-hJ-RAT" id="ssF-DM-soq"/>
                         <outlet property="profileImage" destination="evx-dL-qsh" id="Cwv-uq-2XW"/>
-                        <segue destination="95y-El-yeE" kind="show" identifier="artistList" id="6KF-qM-g0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tds-0Z-DB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="J4n-I8-vRH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="123"/>
+            <point key="canvasLocation" x="2919.1999999999998" y="122.78860569715144"/>
         </scene>
         <!--Artist Table View Controller-->
         <scene sceneID="ceH-c4-g2r">
@@ -165,13 +166,28 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-n6-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1919.2" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UC8-H5-6KO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dpg-Sw-URW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c0v-lP-SUW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gap-rp-PlY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ury-DW-n7l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
         <image name="Moon" width="258" height="129"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="CoZ-gO-k77"/>
-    </inferredMetricsTieBreakers>
 </document>
