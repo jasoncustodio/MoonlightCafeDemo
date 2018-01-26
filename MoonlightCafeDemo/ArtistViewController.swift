@@ -23,7 +23,7 @@ class ArtistViewController: UIViewController {
     profileImage.layer.cornerRadius = profileImage.frame.size.width/2
     
     profileImage.clipsToBounds = true
-    profileImage.layer.borderColor = UIColor.black.cgColor
+    profileImage.layer.borderColor = UIColor.gray.cgColor
     profileImage.layer.borderWidth = 2
     
     profileImage.image = artist?.profileImage
@@ -33,12 +33,22 @@ class ArtistViewController: UIViewController {
     image2.image = artist?.imageArray[1]
     image3.image = artist?.imageArray[2]
     image4.image = artist?.imageArray[3]
+    
+    setBorderColor(image: image1)
+    setBorderColor(image: image2)
+    setBorderColor(image: image3)
+    setBorderColor(image: image4)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setImage()
+  }
+  
+  func setBorderColor(image: UIImageView) {
+    image.layer.borderColor = UIColor.gray.cgColor
+    image.layer.borderWidth = 2
   }
   
   override func didReceiveMemoryWarning() {

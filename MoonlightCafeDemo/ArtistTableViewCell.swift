@@ -13,9 +13,16 @@ class ArtistTableViewCell: UITableViewCell {
   @IBOutlet weak var artistView: UIView!
   
   @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  /*
+  @IBOutlet weak var artistView: UIView!
+  
+  @IBOutlet weak var profileImageView: UIImageView!
   
   @IBOutlet weak var descriptionLabel: UILabel!
   
+ */
+ 
   func setArtist(artist: Artist) {
     profileImageView.image = artist.profileImage
     descriptionLabel.text = artist.description
@@ -25,8 +32,8 @@ class ArtistTableViewCell: UITableViewCell {
     
     profileImageView.layer.cornerRadius = profileImageView.frame.height/2
     profileImageView.clipsToBounds = true
-    profileImageView.layer.borderColor = UIColor.black.cgColor
-    profileImageView.layer.borderWidth = 2
+    //profileImageView.layer.borderColor = UIColor.black.cgColor
+    //profileImageView.layer.borderWidth = 2
   }
   
 }
