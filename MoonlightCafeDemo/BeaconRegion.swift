@@ -17,7 +17,7 @@ struct BeaconRegion {
   
   init(uuidString: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, title: String, subtitle: String, body: String, id: Int) {
     self.notification = Notification(title: title, subtitle: subtitle, body: body)
-    self.beacon = Beacon(uuidString: uuidString, major: major, minor: minor)
+    self.beacon = Beacon(uuidString: uuidString, major: major, minor: minor, id: id)
     self.id = id
   }
   

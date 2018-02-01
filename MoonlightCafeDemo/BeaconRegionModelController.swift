@@ -33,14 +33,20 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
   // Obtain beacon information
   private func getBeaconData() {
     
-    let boop = APICall()
+    var beaconList = [Beacon]()
+    let apiCall = APICall()
     
-    boop.getBeaconData();
+    apiCall.getBeaconData() { (data) in
+      for beacon in data {
+        let add = Beacon(dict: beacon)
+        beaconList.append(add)
+      }
+    }
     
     let uuid = "01234567-0123-0123-0123-012345678910"
     
-    let beacon1 = Beacon(uuidString: uuid, major: 54381, minor: 53700)
-    let beacon2 = Beacon(uuidString: uuid, major: 25140, minor: 11960)
+    let beacon1 = Beacon(uuidString: uuid, major: 54381, minor: 53700, id: 1)
+    let beacon2 = Beacon(uuidString: uuid, major: 25140, minor: 11960, id: 2)
     
     let notification1 = Notification(title: "Zone 1", subtitle: "Swipe me!", body: "Choose An Artist!")
     let notification2 = Notification(title: "Zone 2", subtitle: "Swipe me!", body: "Choose An Artist!")
@@ -62,34 +68,34 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
   private func getArtistData() {
     
     let artist1 = Artist()
-    artist1.profileImage = #imageLiteral(resourceName: "Unknown")
-    artist1.description = "I am cat"
-    artist1.imageArray[0] = #imageLiteral(resourceName: "Unknown3")
-    artist1.imageArray[1] = #imageLiteral(resourceName: "Unknown2")
-    artist1.imageArray[2] = #imageLiteral(resourceName: "Unknown1")
-    artist1.imageArray[3] = #imageLiteral(resourceName: "Unknown4")
+    artist1.profileImage = #imageLiteral(resourceName: "moonlightLogo")
+    artist1.description = "Moonlight Coffeehouse"
+    artist1.imageArray[0] = #imageLiteral(resourceName: "moonlight1")
+    artist1.imageArray[1] = #imageLiteral(resourceName: "moonlight4")
+    artist1.imageArray[2] = #imageLiteral(resourceName: "moonlight2")
+    artist1.imageArray[3] = #imageLiteral(resourceName: "moonlight3")
     
     let artist2 = Artist()
-    artist2.profileImage = #imageLiteral(resourceName: "Unknown5")
-    artist2.description = "I am dog"
-    artist2.imageArray[0] = #imageLiteral(resourceName: "Unknown6")
-    artist2.imageArray[1] = #imageLiteral(resourceName: "Unknown7")
-    artist2.imageArray[2] = #imageLiteral(resourceName: "Unknown8")
-    artist2.imageArray[3] = #imageLiteral(resourceName: "Unknown9")
+    artist2.profileImage = #imageLiteral(resourceName: "dragonfly0")
+    artist2.description = "Dragonfly"
+    artist2.imageArray[0] = #imageLiteral(resourceName: "dragonfly3")
+    artist2.imageArray[1] = #imageLiteral(resourceName: "dragonfly4")
+    artist2.imageArray[2] = #imageLiteral(resourceName: "dragonfly2")
+    artist2.imageArray[3] = #imageLiteral(resourceName: "dragonfly1")
     
     let artist3 = Artist()
-    artist3.profileImage = #imageLiteral(resourceName: "Unknown10")
-    artist3.description = "I am cool"
-    artist3.imageArray[0] = #imageLiteral(resourceName: "Unknown13")
-    artist3.imageArray[1] = #imageLiteral(resourceName: "Unknown14")
-    artist3.imageArray[2] = #imageLiteral(resourceName: "Unknown11")
-    artist3.imageArray[3] = #imageLiteral(resourceName: "Unknown12")
+    artist3.profileImage = #imageLiteral(resourceName: "rock0")
+    artist3.description = "Rock and Felt"
+    artist3.imageArray[0] = #imageLiteral(resourceName: "rock1")
+    artist3.imageArray[1] = #imageLiteral(resourceName: "rock3")
+    artist3.imageArray[2] = #imageLiteral(resourceName: "rock4")
+    artist3.imageArray[3] = #imageLiteral(resourceName: "rock2")
     
     
     beaconRegionList[0].addArtist(artist: artist1)
     beaconRegionList[0].addArtist(artist: artist2)
     beaconRegionList[0].addArtist(artist: artist3)
-    
+    /*
     let artist4 = Artist()
     artist4.profileImage = #imageLiteral(resourceName: "pexels-photo-718978")
     artist4.description = "Arlene Schroender"
@@ -118,7 +124,7 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
     beaconRegionList[1].addArtist(artist: artist4)
     beaconRegionList[1].addArtist(artist: artist5)
     beaconRegionList[1].addArtist(artist: artist6)
-    
+    */
   }
   
   func fetchArtistList() -> [Artist] {

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,20 +22,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxe-XH-FLw">
-                                <rect key="frame" x="140" y="464" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EpS-D4-Gwx">
+                                <rect key="frame" x="41" y="244" width="293" height="178"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxe-XH-FLw">
+                                <rect key="frame" x="137" y="637" width="100" height="30"/>
                                 <state key="normal" title="Beacon Demo"/>
                                 <connections>
                                     <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vpb-0J-JOt"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EpS-D4-Gwx">
-                                <rect key="frame" x="42" y="225" width="293" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1293984055519104" green="0.12941926717758179" blue="0.12939131259918213" alpha="0.95078675176056338" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dxe-XH-FLw" secondAttribute="bottom" id="2Nm-9X-MZW"/>
+                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="HWJ-cE-40d"/>
+                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="180" id="Hmp-YU-BaL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dxe-XH-FLw" secondAttribute="trailing" constant="122" id="Tn1-nO-OVM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EpS-D4-Gwx" secondAttribute="trailing" constant="25" id="hfd-Mn-APX"/>
+                            <constraint firstItem="Dxe-XH-FLw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="121" id="jxU-E9-Lde"/>
+                            <constraint firstItem="Dxe-XH-FLw" firstAttribute="top" secondItem="EpS-D4-Gwx" secondAttribute="bottom" constant="215" id="kz9-5Z-REW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MAX-Bm-jre"/>
                     <connections>
@@ -143,7 +151,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZz-tN-Wp1">
                                                             <rect key="frame" x="100" y="5" width="255" height="90"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.98777824640274048" green="0.99785310029983521" blue="0.93695574998855591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

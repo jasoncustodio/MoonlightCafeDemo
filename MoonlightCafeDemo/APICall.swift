@@ -10,27 +10,35 @@ import Foundation
 
 class APICall {
   
-  func getBeaconData() {
+  func getBeaconData(completion: @escaping ([[String:Any]]) -> Void) {
     
     let beaconURL = URL(string: "https://moonlight-coffeehouse-api.herokuapp.com/beacons/")
-    
-    
     let session = URLSession.shared
     
-    session.dataTask(with: beaconURL!) { (data: Data?, response: URLResponse?, error: Error?) in
+    
+    let task = session.dataTask(with: beaconURL!) { (data, response, error) in
+      
+      // Check Error
+      guard error == nil else {
+        print("Error: \(error)")
+        return
+      }
+      
+      // Check Data
       guard let data = data else {
-        //completion(nil)
+        print("Error: Response Data")
         return
       }
       
-      guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) // as? [String:Any]
-      else {
-        return
-      }
-     
-      print (json)
+      // Convert json into array
+      guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
+        else { return }
       
-    }.resume()
+      DispatchQueue.main.async{
+        completion(json!)
+      }
+    }
+    task.resume()
   }
   
 }
