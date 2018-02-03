@@ -9,16 +9,35 @@
 import UIKit
 import Foundation
 
-class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
+final class BeaconRegionViewModel: NSObject {
   
   //Create instance of beacon manager from the Estimote Framework
-  private let beaconManager = ESTBeaconManager()
+  let beaconManager = ESTBeaconManager()
   
   //lists to hold all notification and beacons
-  private var beaconRegionList = [BeaconRegion]()
+  var beaconRegionList = [BeaconRegion]()
   
-  private var selectedBeaconRegion = 0
-
+  var selectedBeaconRegion = 0
+  var selectedArtist: Artist?
+  
+  var selectedArtistList = [Artist]()
+  
+  func getCount() -> Int {
+    return selectedArtistList.count
+  }
+  
+  func setArtistList() {
+    for beaconRegion in beaconRegionList {
+      if beaconRegion.id == self.selectedBeaconRegion {
+        self.selectedArtistList = beaconRegion.artistList
+      }
+    }
+  }
+  
+  func setSelectedArtist(indexPath: IndexPath) {
+    self.selectedArtist = self.selectedArtistList[indexPath.row]
+  }
+  
   // Setup permissions
   override init() {
     super.init()
@@ -28,12 +47,17 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
     
     getBeaconData()
     getArtistData()
+    setArtistList()
   }
+  
+  
   
   // Obtain beacon information
   private func getBeaconData() {
     
+    /*
     var beaconList = [Beacon]()
+    var notificationList = [Notification]()
     let apiCall = APICall()
     
     apiCall.getBeaconData() { (data) in
@@ -41,15 +65,35 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
         let add = Beacon(dict: beacon)
         beaconList.append(add)
       }
+      print(data)
     }
+    
+    apiCall.getNotificationData() { (data) in
+      for notification in data {
+        let add = Notification(dict: notification)
+        notificationList.append(add)
+      }
+      print(data)
+    }
+    
+    
+    for beacon in beaconList {
+      for notification in notificationList {
+        if beacon.id == notification.id {
+          let add = BeaconRegion(beacon: beacon, notification: notification, id: beacon.id)
+          self.beaconRegionList.append(add)
+        }
+      }
+    }*/
+    
     
     let uuid = "01234567-0123-0123-0123-012345678910"
     
     let beacon1 = Beacon(uuidString: uuid, major: 54381, minor: 53700, id: 1)
     let beacon2 = Beacon(uuidString: uuid, major: 25140, minor: 11960, id: 2)
     
-    let notification1 = Notification(title: "Zone 1", subtitle: "Swipe me!", body: "Choose An Artist!")
-    let notification2 = Notification(title: "Zone 2", subtitle: "Swipe me!", body: "Choose An Artist!")
+    let notification1 = Notification(title: "Zone 1", subtitle: "Swipe me!", body: "Choose An Artist!", id: 1)
+    let notification2 = Notification(title: "Zone 2", subtitle: "Swipe me!", body: "Choose An Artist!", id: 2)
     
     
     let beaconRegion1 = BeaconRegion.init(beacon: beacon1, notification: notification1, id: 0)
@@ -127,15 +171,15 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
     */
   }
   
-  func fetchArtistList() -> [Artist] {
-    return beaconRegionList[self.selectedBeaconRegion].getArtistList()
-  }
+}
+
+extension BeaconRegionViewModel: ESTBeaconManagerDelegate {
   
   // Did enter beacon region event trigger
   func beaconManager(_ manager: Any, didEnter region: CLBeaconRegion) {
     
     print("Entered")
- 
+    
     for beaconRegion in beaconRegionList{
       if (beaconRegion.asBeaconRegion == region) {
         self.selectedBeaconRegion = beaconRegion.id
@@ -156,5 +200,5 @@ class BeaconRegionModelController: NSObject, ESTBeaconManagerDelegate {
   func beaconManager(_ manager: Any, monitoringDidFailFor region: CLBeaconRegion?, withError error: Error) {
     print("Monitoring failed for region: \(region?.identifier ?? "(unknown)"). Make sure that Bluetooth and Location Services are on, and that Location Services are allowed for this app. The error was: \(error)")
   }
-  
+
 }

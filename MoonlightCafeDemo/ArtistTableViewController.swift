@@ -10,11 +10,9 @@ import UIKit
 
 class ArtistTableViewController: UIViewController {
   
-  
   @IBOutlet weak var artistTableView: UITableView!
   
-  var selectedArtist: Artist?
-  var selectedArtistList: [Artist] = []
+  var beaconRegionViewModel: BeaconRegionViewModel!
   
   @IBAction func unwindSegue(_ sender: UIStoryboardSegue) {
     
@@ -28,7 +26,6 @@ class ArtistTableViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.selectedArtistList = appDelegate.beaconManager.fetchArtistList()
     artistTableView.reloadData()
   }
   
@@ -40,7 +37,8 @@ class ArtistTableViewController: UIViewController {
     
     if segue.identifier == "artistDetail" {
       let artistController = segue.destination as! ArtistViewController
-      artistController.artist = selectedArtist
+      //artistController.beaconRegionViewModel = self.beaconRegionViewModel
+      artistController.artist = self.beaconRegionViewModel.selectedArtist
     }
   }
   
@@ -49,12 +47,12 @@ class ArtistTableViewController: UIViewController {
 extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return selectedArtistList.count
+    return self.beaconRegionViewModel.getCount()
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let artist = selectedArtistList[indexPath.row]
+    let artist = self.beaconRegionViewModel.selectedArtistList[indexPath.row]
     let dequeued = tableView.dequeueReusableCell(withIdentifier: "ArtistCell", for: indexPath)
     let cell = dequeued as! ArtistTableViewCell
     
@@ -64,10 +62,8 @@ extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate 
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let artist = selectedArtistList[indexPath.row]
-    
-    selectedArtist = artist
-    
+    beaconRegionViewModel.setSelectedArtist(indexPath: indexPath)
+
     performSegue(withIdentifier: "artistDetail", sender: nil)
   }
   

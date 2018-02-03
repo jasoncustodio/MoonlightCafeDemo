@@ -41,4 +41,38 @@ class APICall {
     task.resume()
   }
   
+  func getNotificationData(completion: @escaping ([[String:Any]]) -> Void) {
+    
+    let beaconURL = URL(string: "https://moonlight-coffeehouse-api.herokuapp.com/notifications/")
+    let session = URLSession.shared
+    
+    
+    let task = session.dataTask(with: beaconURL!) { (data, response, error) in
+      
+      // Check Error
+      guard error == nil else {
+        print("Error: \(error)")
+        return
+      }
+      
+      // Check Data
+      guard let data = data else {
+        print("Error: Response Data")
+        return
+      }
+      
+      // Convert json into array
+      guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
+        else { return }
+      
+      DispatchQueue.main.async{
+        completion(json!)
+      }
+    }
+    task.resume()
+  }
+
+  
+  
+  
 }

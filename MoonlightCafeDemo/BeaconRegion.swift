@@ -16,7 +16,7 @@ struct BeaconRegion {
   var id: Int
   
   init(uuidString: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, title: String, subtitle: String, body: String, id: Int) {
-    self.notification = Notification(title: title, subtitle: subtitle, body: body)
+    self.notification = Notification(title: title, subtitle: subtitle, body: body, id: id)
     self.beacon = Beacon(uuidString: uuidString, major: major, minor: minor, id: id)
     self.id = id
   }
@@ -33,10 +33,6 @@ struct BeaconRegion {
   
   mutating func addArtist(artist: Artist) {
     self.artistList.append(artist)
-  }
-  
-  func getArtistList() -> [Artist] {
-    return self.artistList
   }
   
   var asBeaconRegion: CLBeaconRegion {

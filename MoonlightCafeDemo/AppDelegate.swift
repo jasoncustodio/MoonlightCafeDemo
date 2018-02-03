@@ -15,10 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  let beaconManager = BeaconRegionModelController()
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    if let navigationController = self.window?.rootViewController as? UINavigationController {
+      let homeViewController = navigationController.viewControllers.first as? HomeViewController
+      homeViewController?.beaconRegionViewModel = BeaconRegionViewModel()
+    }
     
     let center = UNUserNotificationCenter.current()
     center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in} )

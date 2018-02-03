@@ -14,14 +14,12 @@ extension UIViewController {
   var appDelegate: AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate
   }
-}
-
-extension UIViewController {
+  
   func doSegue() {
     performSegue(withIdentifier: "artistList", sender: nil)
   }
+  
 }
-
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
   

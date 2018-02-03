@@ -11,12 +11,22 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
+  var beaconRegionViewModel: BeaconRegionViewModel!
+  
   @IBAction func sendNotification(_ sender: Any) {
     
     let notification = Notification(title: "Moonlight Cafe",
                                     subtitle: "SWIPE ME!",
-                                    body: "Would you like to view Artists?")
+                                    body: "Would you like to view Artists?",
+                                    id: 0)
     notification.createAlert()
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "artistList" {
+      let artistTableViewController = segue.destination as! ArtistTableViewController
+      artistTableViewController.beaconRegionViewModel = self.beaconRegionViewModel
+    }
   }
   
   override func viewDidLoad() {

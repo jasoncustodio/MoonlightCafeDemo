@@ -9,18 +9,35 @@
 import Foundation
 import UserNotifications
 
-class Notification {
+struct Notification {
   
   var title: String?
   var subtitle: String?
   var body: String?
+  var id: Int
   
   
-  init(title: String, subtitle: String, body: String) {
+  init(title: String, subtitle: String, body: String, id: Int) {
     self.title = title
     self.subtitle = subtitle
     self.body = body
+    self.id = id
   }
+  
+  init(dict: [String: Any]) {
+    
+    let title = dict["title"] as! String
+    
+    let subtitle = dict["subtitle"] as! String
+    
+    let body = dict["body"] as! String
+    
+    let id = dict["id"] as! Int
+    
+    
+    self.init(title: title, subtitle: subtitle, body: body, id: id)
+  }
+
   
   // Create alert template
   func createAlert() {
