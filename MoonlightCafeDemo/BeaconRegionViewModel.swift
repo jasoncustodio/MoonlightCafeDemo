@@ -33,6 +33,7 @@ final class BeaconRegionViewModel: NSObject {
     for beaconRegion in beaconRegionList {
       if beaconRegion.id == self.selectedBeaconRegion {
         self.selectedArtistList = beaconRegion.artistList
+        return
       }
     }
   }

@@ -25,8 +25,10 @@ class ArtistTableViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    
-    artistTableView.reloadData()
+    DispatchQueue.main.async {
+      self.beaconRegionViewModel.setArtistList()
+      self.artistTableView.reloadData()
+    }
   }
   
   override func didReceiveMemoryWarning() {
