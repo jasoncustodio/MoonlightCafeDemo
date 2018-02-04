@@ -14,9 +14,7 @@ class ArtistTableViewController: UIViewController {
   
   var beaconRegionViewModel: BeaconRegionViewModel!
   
-  @IBAction func unwindSegue(_ sender: UIStoryboardSegue) {
-    
-  }
+  @IBAction func unwindSegue(_ sender: UIStoryboardSegue) { }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,6 +24,8 @@ class ArtistTableViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    
     artistTableView.reloadData()
   }
   
@@ -36,9 +36,8 @@ class ArtistTableViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
     if segue.identifier == "artistDetail" {
-      let artistController = segue.destination as! ArtistViewController
-      //artistController.beaconRegionViewModel = self.beaconRegionViewModel
-      artistController.artist = self.beaconRegionViewModel.selectedArtist
+      let artistController = segue.destination as! ArtistDetailViewController
+      artistController.beaconRegionViewModel = self.beaconRegionViewModel
     }
   }
   
@@ -47,7 +46,7 @@ class ArtistTableViewController: UIViewController {
 extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.beaconRegionViewModel.getCount()
+    return self.beaconRegionViewModel.getNumberOfRows()
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,14 +55,13 @@ extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate 
     let dequeued = tableView.dequeueReusableCell(withIdentifier: "ArtistCell", for: indexPath)
     let cell = dequeued as! ArtistTableViewCell
     
-    cell.setArtist(artist: artist)
+    cell.configureCell(artist: artist)
     
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     beaconRegionViewModel.setSelectedArtist(indexPath: indexPath)
-
     performSegue(withIdentifier: "artistDetail", sender: nil)
   }
   

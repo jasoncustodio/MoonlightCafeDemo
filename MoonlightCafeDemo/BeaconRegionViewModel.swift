@@ -16,13 +16,16 @@ final class BeaconRegionViewModel: NSObject {
   
   //lists to hold all notification and beacons
   var beaconRegionList = [BeaconRegion]()
-  
   var selectedBeaconRegion = 0
   var selectedArtist: Artist?
-  
   var selectedArtistList = [Artist]()
   
-  func getCount() -> Int {
+  // Get artist to populate artist detail page
+  func getSelectedArtist() -> Artist {
+    return self.selectedArtist!
+  }
+  
+  func getNumberOfRows() -> Int {
     return selectedArtistList.count
   }
   
@@ -112,7 +115,7 @@ final class BeaconRegionViewModel: NSObject {
   private func getArtistData() {
     
     let artist1 = Artist()
-    artist1.profileImage = #imageLiteral(resourceName: "moonlightLogo")
+    artist1.profileImage = #imageLiteral(resourceName: "moonlight0")
     artist1.description = "Moonlight Coffeehouse"
     artist1.imageArray[0] = #imageLiteral(resourceName: "moonlight1")
     artist1.imageArray[1] = #imageLiteral(resourceName: "moonlight4")
@@ -139,36 +142,6 @@ final class BeaconRegionViewModel: NSObject {
     beaconRegionList[0].addArtist(artist: artist1)
     beaconRegionList[0].addArtist(artist: artist2)
     beaconRegionList[0].addArtist(artist: artist3)
-    /*
-    let artist4 = Artist()
-    artist4.profileImage = #imageLiteral(resourceName: "pexels-photo-718978")
-    artist4.description = "Arlene Schroender"
-    artist4.imageArray[0] = #imageLiteral(resourceName: "pexels-photo-566041.jpeg")
-    artist4.imageArray[1] = #imageLiteral(resourceName: "pexels-photo-716272.jpeg")
-    artist4.imageArray[2] = #imageLiteral(resourceName: "pexels-photo-716643.jpeg")
-    artist4.imageArray[3] = #imageLiteral(resourceName: "pexels-photo-716834.jpeg")
-    
-    let artist5 = Artist()
-    artist5.profileImage = #imageLiteral(resourceName: "pexels-photo-715842")
-    artist5.description = "Anne Cat"
-    artist5.imageArray[0] = #imageLiteral(resourceName: "pexels-photo-717195.jpeg")
-    artist5.imageArray[1] = #imageLiteral(resourceName: "pexels-photo-717513.jpeg")
-    artist5.imageArray[2] = #imageLiteral(resourceName: "pexels-photo-717987.jpeg")
-    artist5.imageArray[3] = #imageLiteral(resourceName: "pexels-photo-718002.jpeg")
-    
-    let artist6 = Artist()
-    artist6.profileImage = #imageLiteral(resourceName: "pexels-photo-715231.jpeg")
-    artist6.description = "Steph Bryers"
-    artist6.imageArray[0] = #imageLiteral(resourceName: "pexels-photo-718143.jpeg")
-    artist6.imageArray[1] = #imageLiteral(resourceName: "pexels-photo-718279.jpeg")
-    artist6.imageArray[2] = #imageLiteral(resourceName: "pexels-photo-720240.jpeg")
-    artist6.imageArray[3] = #imageLiteral(resourceName: "pexels-photo-720843.jpeg")
-    
-    
-    beaconRegionList[1].addArtist(artist: artist4)
-    beaconRegionList[1].addArtist(artist: artist5)
-    beaconRegionList[1].addArtist(artist: artist6)
-    */
   }
   
 }
@@ -198,7 +171,7 @@ extension BeaconRegionViewModel: ESTBeaconManagerDelegate {
   
   // Bluetooth Beacon Connection Failure
   func beaconManager(_ manager: Any, monitoringDidFailFor region: CLBeaconRegion?, withError error: Error) {
-    print("Monitoring failed for region: \(region?.identifier ?? "(unknown)"). Make sure that Bluetooth and Location Services are on, and that Location Services are allowed for this app. The error was: \(error)")
+    print("Monitoring failed for region: \(region?.identifier ?? "(unknown)"). Make sure that Bluetooth and Location Services are on, and that Location Services are allowed for this app. The error was: \(error) \n")
   }
 
 }

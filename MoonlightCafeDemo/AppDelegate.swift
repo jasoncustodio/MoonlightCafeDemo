@@ -9,23 +9,18 @@
 import UIKit
 import UserNotifications
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
     
-    if let navigationController = self.window?.rootViewController as? UINavigationController {
-      let homeViewController = navigationController.viewControllers.first as? HomeViewController
-      homeViewController?.beaconRegionViewModel = BeaconRegionViewModel()
-    }
+    configureNavigationBarAppearance()
     
-    let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in} )
-    center.delegate = self
+    injectViewModel()
+    
+    setNotificationDelegate()
     
     return true
   }
@@ -51,4 +46,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+}
+
+// Handle notifications
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  
+  // Set notification delegate
+  func setNotificationDelegate() {
+    let center = UNUserNotificationCenter.current()
+    center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error in} )
+    center.delegate = self
+  }
+  
+  // Allow notificaiton to popup in the foreground
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.alert, .sound])
+  }
+  
+  // Allow events based on notification actions
+  public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    
+    if(response.actionIdentifier != "YES") {
+      completionHandler()
+      return
+    }
+    
+    if let artistController = self.window?.rootViewController as? ArtistTableViewController {
+      DispatchQueue.main.async { artistController.artistTableView.reloadData() }
+    }
+    else if let navigationController = self.window?.rootViewController as? UINavigationController {
+      let initialViewController = navigationController.viewControllers.first
+      initialViewController?.artistListSegue()
+    }
+    
+    completionHandler()
+  }
+  
+}
+
+// Handle extra functions
+extension AppDelegate {
+  
+  // Change navbar appearance
+  func configureNavigationBarAppearance() {
+    
+    let navigationBarAppearance = UINavigationBar.appearance()
+    navigationBarAppearance.tintColor = UIColor.white
+    navigationBarAppearance.barTintColor = UIColor.black
+    navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+  }
+  
+  // View Model Dependency Injection
+  func injectViewModel() {
+    
+    if let navigationController = self.window?.rootViewController as? UINavigationController {
+      let homeViewController = navigationController.viewControllers.first as? HomeViewController
+      homeViewController?.beaconRegionViewModel = BeaconRegionViewModel()
+    }
+  }
+  
 }

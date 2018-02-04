@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
         </scene>
-        <!--Artist View Controller-->
+        <!--Artist Detail View Controller-->
         <scene sceneID="Iu0-uY-lIa">
             <objects>
-                <viewController id="WI6-k0-OhJ" customClass="ArtistViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WI6-k0-OhJ" customClass="ArtistDetailViewController" customModule="MoonlightCafeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eq9-Ts-PI2"/>
                         <viewControllerLayoutGuide type="bottom" id="6fa-Hy-vuQ"/>

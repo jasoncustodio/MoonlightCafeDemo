@@ -11,29 +11,18 @@ import UIKit
 class ArtistTableViewCell: UITableViewCell {
   
   @IBOutlet weak var artistView: UIView!
-  
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var descriptionLabel: UILabel!
-  /*
-  @IBOutlet weak var artistView: UIView!
   
-  @IBOutlet weak var profileImageView: UIImageView!
-  
-  @IBOutlet weak var descriptionLabel: UILabel!
-  
- */
- 
-  func setArtist(artist: Artist) {
+  // Configure cell accoreding to Artist data
+  func configureCell(artist: Artist) {
     profileImageView.image = artist.profileImage
     descriptionLabel.text = artist.description
     
     // Rounded Image
     artistView.layer.cornerRadius = artistView.frame.height/2
-    
     profileImageView.layer.cornerRadius = profileImageView.frame.height/2
     profileImageView.clipsToBounds = true
-    //profileImageView.layer.borderColor = UIColor.black.cgColor
-    //profileImageView.layer.borderWidth = 2
   }
   
 }

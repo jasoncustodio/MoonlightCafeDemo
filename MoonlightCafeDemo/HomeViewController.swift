@@ -22,22 +22,13 @@ class HomeViewController: UIViewController {
     notification.createAlert()
   }
   
+  // Segue to tableView of Artists
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "artistList" {
       let artistTableViewController = segue.destination as! ArtistTableViewController
       artistTableViewController.beaconRegionViewModel = self.beaconRegionViewModel
     }
   }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
 }
 
 
