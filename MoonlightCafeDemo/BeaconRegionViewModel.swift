@@ -114,7 +114,7 @@ final class BeaconRegionViewModel: NSObject {
   
   private func getArtistData() {
     
-    let artist1 = Artist()
+    var artist1 = Artist()
     artist1.profileImage = #imageLiteral(resourceName: "moonlight0")
     artist1.description = "Moonlight Coffeehouse"
     artist1.imageArray[0] = #imageLiteral(resourceName: "moonlight1")
@@ -122,7 +122,7 @@ final class BeaconRegionViewModel: NSObject {
     artist1.imageArray[2] = #imageLiteral(resourceName: "moonlight2")
     artist1.imageArray[3] = #imageLiteral(resourceName: "moonlight3")
     
-    let artist2 = Artist()
+    var artist2 = Artist()
     artist2.profileImage = #imageLiteral(resourceName: "dragonfly0")
     artist2.description = "Dragonfly"
     artist2.imageArray[0] = #imageLiteral(resourceName: "dragonfly3")
@@ -130,7 +130,7 @@ final class BeaconRegionViewModel: NSObject {
     artist2.imageArray[2] = #imageLiteral(resourceName: "dragonfly2")
     artist2.imageArray[3] = #imageLiteral(resourceName: "dragonfly1")
     
-    let artist3 = Artist()
+    var artist3 = Artist()
     artist3.profileImage = #imageLiteral(resourceName: "rock0")
     artist3.description = "Rock and Felt"
     artist3.imageArray[0] = #imageLiteral(resourceName: "rock1")

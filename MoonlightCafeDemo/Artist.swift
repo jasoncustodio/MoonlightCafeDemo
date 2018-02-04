@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Artist {
+struct Artist {
   var profileImage: UIImage? = nil
   var description: String = ""
   var imageArray = [UIImage]()
