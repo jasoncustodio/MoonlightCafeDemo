@@ -24,17 +24,15 @@ struct Notification {
     self.id = id
   }
   
-  init(dict: [String: Any]) {
+  init?(dict: [String: Any]) {
     
-    let title = dict["title"] as! String
-    
-    let subtitle = dict["subtitle"] as! String
-    
-    let body = dict["body"] as! String
-    
-    let id = dict["id"] as! Int
-    
-    
+    guard let title = dict["title"] as? String,
+      let subtitle = dict["subtitle"] as? String,
+      let body = dict["body"] as? String,
+      let id = dict["id"] as? Int else {
+        return nil
+    }
+        
     self.init(title: title, subtitle: subtitle, body: body, id: id)
   }
 

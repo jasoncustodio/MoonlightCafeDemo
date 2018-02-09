@@ -26,16 +26,14 @@ struct Beacon: Equatable {
     self.init(uuid: UUID(uuidString: uuidString)!, major: major, minor: minor, id: id)
   }
   
-  init(dict: [String: Any]) {
+  init?(dict: [String: Any]) {
     
-    let uuid = dict["uuid"] as! String
-    
-    let major = dict["major"] as! CLBeaconMajorValue
-  
-    let minor = dict["minor"] as! CLBeaconMinorValue
-    
-    let id = dict["id"] as! Int
-    
+    guard let uuid = dict["uuid"] as? String,
+      let major = dict["major"] as? CLBeaconMajorValue,
+      let minor = dict["minor"] as? CLBeaconMinorValue,
+      let id = dict["id"] as? Int else {
+        return nil
+    }
 
     self.init(uuidString: uuid, major: major, minor: minor, id: id)
   }

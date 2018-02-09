@@ -11,22 +11,34 @@ import Foundation
 
 final class BeaconRegionViewModel: NSObject {
   
-  //Create instance of beacon manager from the Estimote Framework
+  // MARK: - Properties
   let beaconManager = ESTBeaconManager()
-  
-  //lists to hold all notification and beacons
   var beaconRegionList = [BeaconRegion]()
-  var selectedBeaconRegion = 0
+  var selectedBeaconRegion = 1
   var selectedArtist: Artist?
   var selectedArtistList = [Artist]()
   
-  // Get artist to populate artist detail page
+  // MARK: - Methods
+  override init() {
+    super.init()
+    
+    // Setup permissions
+    self.beaconManager.requestAlwaysAuthorization()
+    self.beaconManager.delegate = self
+    
+    getBeaconData()
+  }
+  
   func getSelectedArtist() -> Artist {
     return self.selectedArtist!
   }
   
   func getNumberOfRows() -> Int {
     return selectedArtistList.count
+  }
+  
+  func setSelectedArtist(indexPath: IndexPath) {
+    self.selectedArtist = self.selectedArtistList[indexPath.row]
   }
   
   func setArtistList() {
@@ -38,82 +50,36 @@ final class BeaconRegionViewModel: NSObject {
     }
   }
   
-  func setSelectedArtist(indexPath: IndexPath) {
-    self.selectedArtist = self.selectedArtistList[indexPath.row]
-  }
-  
-  // Setup permissions
-  override init() {
-    super.init()
-    
-    self.beaconManager.requestAlwaysAuthorization()
-    self.beaconManager.delegate = self
-    
-    getBeaconData()
-    getArtistData()
-    setArtistList()
-  }
-  
-  
-  
-  // Obtain beacon information
+  // MARK: - Network Controller Helper
   private func getBeaconData() {
     
-    /*
-    var beaconList = [Beacon]()
-    var notificationList = [Notification]()
-    let apiCall = APICall()
+    let apiCall = NetworkController()
     
     apiCall.getBeaconData() { (data) in
+            
       for beacon in data {
-        let add = Beacon(dict: beacon)
-        beaconList.append(add)
+        
+        guard let notification = beacon["notification"] as? [String:Any],
+          let addBeacon = Beacon(dict: beacon),
+          let addNotification = Notification(dict: notification)
+          else { return }
+        
+        let beaconRegion = BeaconRegion(beacon: addBeacon, notification: addNotification, id: addBeacon.id)
+        self.beaconRegionList.append(beaconRegion)
       }
-      print(data)
-    }
-    
-    apiCall.getNotificationData() { (data) in
-      for notification in data {
-        let add = Notification(dict: notification)
-        notificationList.append(add)
+      
+      for beaconRegion in self.beaconRegionList {
+        let region = beaconRegion.asBeaconRegion
+        self.beaconManager.startMonitoring(for: region)
       }
-      print(data)
-    }
-    
-    
-    for beacon in beaconList {
-      for notification in notificationList {
-        if beacon.id == notification.id {
-          let add = BeaconRegion(beacon: beacon, notification: notification, id: beacon.id)
-          self.beaconRegionList.append(add)
-        }
-      }
-    }*/
-    
-    
-    let uuid = "01234567-0123-0123-0123-012345678910"
-    
-    let beacon1 = Beacon(uuidString: uuid, major: 54381, minor: 53700, id: 1)
-    let beacon2 = Beacon(uuidString: uuid, major: 25140, minor: 11960, id: 2)
-    
-    let notification1 = Notification(title: "Zone 1", subtitle: "Swipe me!", body: "Choose An Artist!", id: 1)
-    let notification2 = Notification(title: "Zone 2", subtitle: "Swipe me!", body: "Choose An Artist!", id: 2)
-    
-    
-    let beaconRegion1 = BeaconRegion.init(beacon: beacon1, notification: notification1, id: 0)
-    let beaconRegion2 = BeaconRegion.init(beacon: beacon2, notification: notification2, id: 1)
-  
-    self.beaconRegionList.append(beaconRegion1)
-    self.beaconRegionList.append(beaconRegion2)
-  
-    for beaconRegion in beaconRegionList {
-      let region = beaconRegion.asBeaconRegion
-      self.beaconManager.startMonitoring(for: region)
+      
+      self.getArtistData()
+      self.setArtistList()
     }
     
   }
   
-  private func getArtistData() {
+  func getArtistData() {
     
     var artist1 = Artist()
     artist1.profileImage = #imageLiteral(resourceName: "moonlight0")
@@ -147,6 +113,7 @@ final class BeaconRegionViewModel: NSObject {
   
 }
 
+// MARK: - Beacon Delegate
 extension BeaconRegionViewModel: ESTBeaconManagerDelegate {
   
   // Did enter beacon region event trigger
@@ -174,5 +141,5 @@ extension BeaconRegionViewModel: ESTBeaconManagerDelegate {
   func beaconManager(_ manager: Any, monitoringDidFailFor region: CLBeaconRegion?, withError error: Error) {
     print("Monitoring failed for region: \(region?.identifier ?? "(unknown)"). Make sure that Bluetooth and Location Services are on, and that Location Services are allowed for this app. The error was: \(error) \n")
   }
-
+  
 }
