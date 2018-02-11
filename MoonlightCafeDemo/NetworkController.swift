@@ -1,5 +1,5 @@
 //
-//  APICall.swift
+//  NetworkController.swift
 //  MoonlightCafeDemo
 //
 //  Created by Jason Custodio on 1/18/18.
@@ -12,7 +12,9 @@ class NetworkController {
   
   // MARK: - Properties
   static let urlString = "https://moonlight-coffeehouse-api.herokuapp.com/beacons/"
+  static let baseURL = "https://s3-us-west-2.amazonaws.com/moonlight-coffeehouse-api/artists/"
   
+  // MARK: - Functions
   func getBeaconData(completion: @escaping ([[String:Any]]) -> Void) {
     
     guard let request = getRequest(url: NetworkController.urlString) else { return }
@@ -23,12 +25,9 @@ class NetworkController {
     }
   }
   
-  // MARK: - Helper Functions
-  func sendRequest(request: URLRequest?, completion: @escaping ([[String:Any]]?) -> Void) {
+  func sendRequest(request: URLRequest, completion: @escaping ([[String:Any]]?) -> Void) {
     
-    let session = URLSession.shared
-    
-    let task = session.dataTask(with: request!) { (data, response, error) in
+    getDataFromUrl(request: request){ (data, response, error) in
       
       guard let unwrappedData = self.unwrapData(data: data, error: error) else {
         completion(nil)
@@ -41,6 +40,15 @@ class NetworkController {
       }
       
       completion(parsedData)
+    }
+    
+  }
+  
+  func getDataFromUrl(request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    
+    let session = URLSession.shared
+    let task = session.dataTask(with: request) { (data, response, error) in
+      completion(data, response, error)
     }
     task.resume()
   }

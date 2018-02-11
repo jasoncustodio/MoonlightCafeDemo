@@ -16,7 +16,7 @@ class ArtistTableViewCell: UITableViewCell {
   
   // Configure cell accoreding to Artist data
   func configureCell(artist: Artist) {
-    profileImageView.image = artist.profileImage
+    profileImageView.downloadedFrom(link: artist.profileImage!)
     descriptionLabel.text = artist.description
     
     // Rounded Image

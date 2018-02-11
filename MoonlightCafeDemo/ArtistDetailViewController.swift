@@ -44,14 +44,14 @@ class ArtistDetailViewController: UIViewController {
     let artist = beaconRegionViewModel.getSelectedArtist()
     
     roundProfileImage()
-    profileImage.image = artist.profileImage
+    profileImage.downloadedFrom(link:artist.profileImage!)
     bio.text = artist.description
     
-    image1.image = artist.imageArray[0]
-    image2.image = artist.imageArray[1]
-    image3.image = artist.imageArray[2]
-    image4.image = artist.imageArray[3]
-    
+    image1.downloadedFrom(link: artist.imageArray[0])
+    image2.downloadedFrom(link: artist.imageArray[1])
+    image3.downloadedFrom(link: artist.imageArray[2])
+    image4.downloadedFrom(link: artist.imageArray[3])
+ 
     setBorderColor(image: image1)
     setBorderColor(image: image2)
     setBorderColor(image: image3)

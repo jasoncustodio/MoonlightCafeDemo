@@ -61,10 +61,19 @@ final class BeaconRegionViewModel: NSObject {
         
         guard let notification = beacon["notification"] as? [String:Any],
           let addBeacon = Beacon(dict: beacon),
-          let addNotification = Notification(dict: notification)
+          let addNotification = Notification(dict: notification),
+          let addArtist = beacon["artists"] as? [[String:Any]]
           else { return }
         
-        let beaconRegion = BeaconRegion(beacon: addBeacon, notification: addNotification, id: addBeacon.id)
+        var beaconRegion = BeaconRegion(beacon: addBeacon, notification: addNotification, id: addBeacon.id)
+        
+        for artist in addArtist {
+          
+          guard let singleArtist = Artist(dict: artist) else {return}
+          
+          beaconRegion.addArtist(artist: singleArtist)
+        }
+        
         self.beaconRegionList.append(beaconRegion)
       }
       
@@ -73,42 +82,9 @@ final class BeaconRegionViewModel: NSObject {
         self.beaconManager.startMonitoring(for: region)
       }
       
-      self.getArtistData()
       self.setArtistList()
     }
     
-  }
-  
-  func getArtistData() {
-    
-    var artist1 = Artist()
-    artist1.profileImage = #imageLiteral(resourceName: "moonlight0")
-    artist1.description = "Moonlight Coffeehouse"
-    artist1.imageArray[0] = #imageLiteral(resourceName: "moonlight1")
-    artist1.imageArray[1] = #imageLiteral(resourceName: "moonlight4")
-    artist1.imageArray[2] = #imageLiteral(resourceName: "moonlight2")
-    artist1.imageArray[3] = #imageLiteral(resourceName: "moonlight3")
-    
-    var artist2 = Artist()
-    artist2.profileImage = #imageLiteral(resourceName: "dragonfly0")
-    artist2.description = "Dragonfly"
-    artist2.imageArray[0] = #imageLiteral(resourceName: "dragonfly3")
-    artist2.imageArray[1] = #imageLiteral(resourceName: "dragonfly4")
-    artist2.imageArray[2] = #imageLiteral(resourceName: "dragonfly2")
-    artist2.imageArray[3] = #imageLiteral(resourceName: "dragonfly1")
-    
-    var artist3 = Artist()
-    artist3.profileImage = #imageLiteral(resourceName: "rock0")
-    artist3.description = "Rock and Felt"
-    artist3.imageArray[0] = #imageLiteral(resourceName: "rock1")
-    artist3.imageArray[1] = #imageLiteral(resourceName: "rock3")
-    artist3.imageArray[2] = #imageLiteral(resourceName: "rock4")
-    artist3.imageArray[3] = #imageLiteral(resourceName: "rock2")
-    
-    
-    beaconRegionList[0].addArtist(artist: artist1)
-    beaconRegionList[0].addArtist(artist: artist2)
-    beaconRegionList[0].addArtist(artist: artist3)
   }
   
 }

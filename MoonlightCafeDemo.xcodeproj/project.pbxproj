@@ -10,6 +10,7 @@
 		3D2F3FC81FE85FAF0036B5F9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F3FC71FE85FAF0036B5F9 /* Notification.swift */; };
 		3D2F3FCD1FE865B80036B5F9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F3FCC1FE865B80036B5F9 /* UIViewController+Extension.swift */; };
 		3D4F7CDB1FE9ED6500F4E313 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */; };
+		3D5BABD82030AB9400DE6F13 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BABD72030AB9400DE6F13 /* RoundButton.swift */; };
 		3D76E0981FE37A6900E5E2ED /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */; };
 		3D7DCA7C2011BA300043C8B1 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DCA7B2011BA300043C8B1 /* NetworkController.swift */; };
 		3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8434A1FA2CBB300260AAA /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		3D2F3FC71FE85FAF0036B5F9 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3D2F3FCC1FE865B80036B5F9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3D4F7CDA1FE9ED6500F4E313 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		3D5BABD72030AB9400DE6F13 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
 		3D7DCA7B2011BA300043C8B1 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		3DA843471FA2CBB300260AAA /* MoonlightCafeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonlightCafeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,15 +127,23 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		3D4F7CD91FE9E96300F4E313 /* ViewController */ = {
+		3D4F7CD91FE9E96300F4E313 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */,
 				3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */,
 				3DA8437B1FA2FE0A00260AAA /* ArtistDetailViewController.swift */,
 				3DEFA332201BA87900BE5217 /* ArtistTableViewController.swift */,
 			);
-			name = ViewController;
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3D5BABD92030AC5A00DE6F13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D5BABD72030AB9400DE6F13 /* RoundButton.swift */,
+				3D76E0971FE37A6900E5E2ED /* ArtistTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		3DA8433E1FA2CBB200260AAA = {
@@ -160,7 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				3DA8434E1FA2CBB300260AAA /* Main.storyboard */,
-				3D4F7CD91FE9E96300F4E313 /* ViewController */,
+				3D5BABD92030AC5A00DE6F13 /* Views */,
+				3D4F7CD91FE9E96300F4E313 /* Controllers */,
 				3DF104A21FE9FC0C00A9B611 /* ViewModel */,
 				3D2F3FCB1FE860A20036B5F9 /* Models */,
 				3D1BC38B20213D8B00C34D18 /* Network */,
@@ -350,6 +361,7 @@
 				3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */,
 				3DEFA333201BA87900BE5217 /* ArtistTableViewController.swift in Sources */,
 				3D2F3FC81FE85FAF0036B5F9 /* Notification.swift in Sources */,
+				3D5BABD82030AB9400DE6F13 /* RoundButton.swift in Sources */,
 				3DF104A61FEA353400A9B611 /* BeaconRegion.swift in Sources */,
 				3DF104A41FE9FC4600A9B611 /* BeaconRegionViewModel.swift in Sources */,
 				3D4F7CDB1FE9ED6500F4E313 /* Beacon.swift in Sources */,
