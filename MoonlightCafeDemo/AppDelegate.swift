@@ -66,11 +66,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   // Allow events based on notification actions
   public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     
-    if(response.actionIdentifier != "YES") {
-      completionHandler()
-      return
-    }
-    
     if let artistController = self.window?.rootViewController as? ArtistTableViewController {
       DispatchQueue.main.async { artistController.artistTableView.reloadData() }
     }

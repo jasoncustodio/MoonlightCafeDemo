@@ -11,12 +11,13 @@ import UserNotifications
 
 struct Notification {
   
+  // MARK: - Properties
   var title: String?
   var subtitle: String?
   var body: String?
   var id: Int
   
-  
+  // MARK: - Constructors
   init(title: String, subtitle: String, body: String, id: Int) {
     self.title = title
     self.subtitle = subtitle
@@ -35,17 +36,9 @@ struct Notification {
         
     self.init(title: title, subtitle: subtitle, body: body, id: id)
   }
-
   
-  // Create alert template
+  // MARK: - Methods
   func createAlert() {
-    
-    // Create Notification Actions
-    let yesButton = UNNotificationAction(identifier: "YES", title: "YES", options: .foreground)
-    let noButton = UNNotificationAction(identifier: "NO", title: "NO", options: .foreground)
-    
-    let category = UNNotificationCategory(identifier: "artistList", actions: [yesButton, noButton], intentIdentifiers: [], options: [])
-    UNUserNotificationCenter.current().setNotificationCategories([category])
     
     // Create A Notification
     let content = UNMutableNotificationContent()
@@ -53,7 +46,6 @@ struct Notification {
     content.subtitle = self.subtitle!
     content.body = self.body!
     content.badge = 1
-    content.categoryIdentifier = "artistList"
     
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     
