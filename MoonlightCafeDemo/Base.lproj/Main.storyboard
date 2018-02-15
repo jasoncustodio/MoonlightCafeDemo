@@ -132,11 +132,11 @@
                     </view>
                     <connections>
                         <outlet property="bio" destination="msg-9f-Jc4" id="Ak2-2B-qr6"/>
-                        <outlet property="image1" destination="cn2-i0-tyk" id="L12-JP-r5x"/>
-                        <outlet property="image2" destination="Ev1-w2-c50" id="ifz-Wi-yjP"/>
-                        <outlet property="image3" destination="5MU-VY-Tfu" id="fpF-Fc-4rO"/>
-                        <outlet property="image4" destination="LM0-hJ-RAT" id="ssF-DM-soq"/>
                         <outlet property="profileImage" destination="evx-dL-qsh" id="Cwv-uq-2XW"/>
+                        <outletCollection property="imageArray" destination="cn2-i0-tyk" collectionClass="NSMutableArray" id="2I8-rm-EOc"/>
+                        <outletCollection property="imageArray" destination="Ev1-w2-c50" collectionClass="NSMutableArray" id="mYK-CE-eFK"/>
+                        <outletCollection property="imageArray" destination="5MU-VY-Tfu" collectionClass="NSMutableArray" id="s0L-R1-43f"/>
+                        <outletCollection property="imageArray" destination="LM0-hJ-RAT" collectionClass="NSMutableArray" id="prd-jq-xhs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tds-0Z-DB4" userLabel="First Responder" sceneMemberID="firstResponder"/>

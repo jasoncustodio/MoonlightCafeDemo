@@ -10,32 +10,25 @@ import UIKit
 
 class ArtistDetailViewController: UIViewController {
   
+  // MARK: - Outlets
   @IBOutlet weak var profileImage: UIImageView!
   @IBOutlet weak var bio: UILabel!
-  @IBOutlet weak var image1: UIImageView!
-  @IBOutlet weak var image2: UIImageView!
-  @IBOutlet weak var image3: UIImageView!
-  @IBOutlet weak var image4: UIImageView!
+  @IBOutlet var imageArray: [UIImageView]!
   
+  // MARK: - Properties
   var beaconRegionViewModel: BeaconRegionViewModel!
   
+  // MARK: - Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     setImage()
-  }
-  
-  // Set border properties for artwork
-  func setBorderColor(image: UIImageView) {
-    image.layer.borderColor = UIColor.gray.cgColor
-    image.layer.borderWidth = 2
   }
   
   // Create rounded borders for profile image
   func roundProfileImage() {
     profileImage.layer.cornerRadius = profileImage.frame.size.width/2
     profileImage.clipsToBounds = true
-    profileImage.layer.borderColor = UIColor.gray.cgColor
-    profileImage.layer.borderWidth = 2
+    profileImage.setBorderColor()
   }
   
   // Set Artist detail view based on selected artist from tableView
@@ -47,15 +40,9 @@ class ArtistDetailViewController: UIViewController {
     profileImage.downloadedFrom(link:artist.profileImage!)
     bio.text = artist.description
     
-    image1.downloadedFrom(link: artist.imageArray[0])
-    image2.downloadedFrom(link: artist.imageArray[1])
-    image3.downloadedFrom(link: artist.imageArray[2])
-    image4.downloadedFrom(link: artist.imageArray[3])
- 
-    setBorderColor(image: image1)
-    setBorderColor(image: image2)
-    setBorderColor(image: image3)
-    setBorderColor(image: image4)
+    for index in imageArray.indices {
+      imageArray[index].downloadedFrom(link: artist.imageArray[index])
+      imageArray[index].setBorderColor()
+    }
   }
-  
 }

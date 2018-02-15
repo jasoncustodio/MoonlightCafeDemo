@@ -30,7 +30,6 @@ struct Artist {
     imageArray.append(image2)
     imageArray.append(image3)
     imageArray.append(image4)
-    
   }
   
 }
