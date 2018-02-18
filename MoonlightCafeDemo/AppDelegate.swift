@@ -88,7 +88,7 @@ extension AppDelegate {
     let navigationBarAppearance = UINavigationBar.appearance()
     navigationBarAppearance.tintColor = UIColor.white
     navigationBarAppearance.barTintColor = UIColor.black
-    navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
   }
   
