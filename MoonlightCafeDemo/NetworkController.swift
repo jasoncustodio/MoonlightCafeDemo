@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkController {
+final class NetworkController: NSObject {
   
   // MARK: - Properties
   static let urlString = "https://moonlight-coffeehouse-api.herokuapp.com/beacons/"
