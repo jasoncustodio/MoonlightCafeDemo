@@ -56,7 +56,7 @@ class NetworkController {
   func unwrapData(data: Data?, error: Error?) -> Data?{
     
     guard error == nil else {
-        print("Error: \(String(describing: error))")
+      print("Error: \(String(describing: error))")
       return nil
     }
     

@@ -10,12 +10,14 @@ import UIKit
 
 class ArtistTableViewController: UIViewController {
   
+  // MARK: - Interface Builder
   @IBOutlet weak var artistTableView: UITableView!
-  
-  var beaconRegionViewModel: BeaconRegionViewModel!
-  
   @IBAction func unwindSegue(_ sender: UIStoryboardSegue) { }
   
+  // MARK: - Properties
+   var beaconRegionViewModel: BeaconRegionViewModel!
+  
+  // MARK: - Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     artistTableView.delegate = self
@@ -24,11 +26,7 @@ class ArtistTableViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
-    self.beaconRegionViewModel.setArtistList()
-    
     DispatchQueue.main.async { self.artistTableView.reloadData() }
-    
   }
   
   override func didReceiveMemoryWarning() {
@@ -36,13 +34,11 @@ class ArtistTableViewController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
     if segue.identifier == "artistDetail" {
       let artistController = segue.destination as! ArtistDetailViewController
       artistController.beaconRegionViewModel = self.beaconRegionViewModel
     }
   }
-  
 }
 
 extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate {
@@ -53,7 +49,7 @@ extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate 
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let artist = self.beaconRegionViewModel.selectedArtistList[indexPath.row]
+    let artist = self.beaconRegionViewModel.getArtist(indexPath: indexPath)
     let dequeued = tableView.dequeueReusableCell(withIdentifier: "ArtistCell", for: indexPath)
     let cell = dequeued as! ArtistTableViewCell
     

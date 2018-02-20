@@ -14,40 +14,38 @@ final class BeaconRegionViewModel: NSObject {
   // MARK: - Properties
   let beaconManager = ESTBeaconManager()
   var beaconRegionList = [BeaconRegion]()
-  var selectedBeaconRegion = 1
-  var selectedArtist: Artist?
-  var selectedArtistList = [Artist]()
+  var selectedBeaconRegion: BeaconRegion?
+  var selectedArtist = Artist()
   
   // MARK: - Methods
   override init() {
     super.init()
     
-    // Setup permissions
     self.beaconManager.requestAlwaysAuthorization()
     self.beaconManager.delegate = self
     
     getBeaconData()
   }
   
-  func getSelectedArtist() -> Artist {
-    return self.selectedArtist!
+  // Used only for testing
+  func testBeacon() {
+    self.selectedBeaconRegion = beaconRegionList[0]
   }
   
   func getNumberOfRows() -> Int {
-    return selectedArtistList.count
+    return selectedBeaconRegion?.artistList.count ?? 0
+  }
+  
+  func getSelectedArtist() -> Artist {
+    return self.selectedArtist
+  }
+  
+  func getArtist(indexPath: IndexPath) -> Artist {
+    return (self.selectedBeaconRegion?.artistList[indexPath.row])!
   }
   
   func setSelectedArtist(indexPath: IndexPath) {
-    self.selectedArtist = self.selectedArtistList[indexPath.row]
-  }
-  
-  func setArtistList() {
-    for beaconRegion in beaconRegionList {
-      if beaconRegion.id == self.selectedBeaconRegion {
-        self.selectedArtistList = beaconRegion.artistList
-        return
-      }
-    }
+    self.selectedArtist = (self.selectedBeaconRegion?.artistList[indexPath.row])!
   }
   
   // MARK: - Network Controller Helper
@@ -56,7 +54,7 @@ final class BeaconRegionViewModel: NSObject {
     let apiCall = NetworkController()
     
     apiCall.getBeaconData() { (data) in
-            
+      
       for beacon in data {
         
         guard let notification = beacon["notification"] as? [String:Any],
@@ -82,9 +80,8 @@ final class BeaconRegionViewModel: NSObject {
         self.beaconManager.startMonitoring(for: region)
       }
       
-      self.setArtistList()
+      self.testBeacon()
     }
-    
   }
   
 }
@@ -99,7 +96,7 @@ extension BeaconRegionViewModel: ESTBeaconManagerDelegate {
     
     for beaconRegion in beaconRegionList{
       if (beaconRegion.asBeaconRegion == region) {
-        self.selectedBeaconRegion = beaconRegion.id
+        self.selectedBeaconRegion = beaconRegion
         beaconRegion.createAlert()
       }
     }

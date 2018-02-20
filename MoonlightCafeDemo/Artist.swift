@@ -14,6 +14,11 @@ struct Artist {
   var description: String?
   var imageArray = [String]()
   
+  init() {
+    self.profileImage = nil
+    self.description = nil
+  }
+  
   init?(dict: [String: Any]) {
     
     guard let description = dict["name"] as? String,
