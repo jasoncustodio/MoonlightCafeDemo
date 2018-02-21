@@ -11,9 +11,9 @@ import UIKit
 class ArtistDetailViewController: UIViewController {
   
   // MARK: - Outlets
-  @IBOutlet weak var profileImage: UIImageView!
-  @IBOutlet weak var bio: UILabel!
-  @IBOutlet var imageArray: [UIImageView]!
+  @IBOutlet private weak var profileImage: UIImageView!
+  @IBOutlet private weak var bio: UILabel!
+  @IBOutlet private var imageArray: [UIImageView]!
   
   // MARK: - Properties
   var beaconRegionViewModel: BeaconRegionViewModel!
@@ -24,25 +24,19 @@ class ArtistDetailViewController: UIViewController {
     setImage()
   }
   
-  // Create rounded borders for profile image
-  func roundProfileImage() {
-    profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-    profileImage.clipsToBounds = true
-    profileImage.setBorderColor()
-  }
-  
   // Set Artist detail view based on selected artist from tableView
-  func setImage() {
+  private func setImage() {
     
     let artist = beaconRegionViewModel.getSelectedArtist()
     
-    roundProfileImage()
+    profileImage.roundImage()
+    profileImage.grayBorderColor()
     profileImage.downloadedFrom(link:artist.profileImage!)
     bio.text = artist.description
     
     for index in imageArray.indices {
       imageArray[index].downloadedFrom(link: artist.imageArray[index])
-      imageArray[index].setBorderColor()
+      imageArray[index].grayBorderColor()
     }
   }
 }

@@ -12,18 +12,16 @@ import Foundation
 final class BeaconRegionViewModel: NSObject {
   
   // MARK: - Properties
-  let beaconManager = ESTBeaconManager()
-  var beaconRegionList = [BeaconRegion]()
-  var selectedBeaconRegion: BeaconRegion?
-  var selectedArtist = Artist()
+  private var beaconManager = ESTBeaconManager()
+  private var beaconRegionList = [BeaconRegion]()
+  private var selectedBeaconRegion: BeaconRegion?
+  private var selectedArtist = Artist()
   
   // MARK: - Methods
   override init() {
     super.init()
-    
     self.beaconManager.requestAlwaysAuthorization()
     self.beaconManager.delegate = self
-    
     getBeaconData()
   }
   

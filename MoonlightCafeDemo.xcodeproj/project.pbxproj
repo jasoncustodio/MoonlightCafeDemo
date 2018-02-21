@@ -26,6 +26,7 @@
 		3DF1049F1FE9F72300A9B611 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF1049E1FE9F72300A9B611 /* EstimoteSDK.framework */; };
 		3DF104A41FE9FC4600A9B611 /* BeaconRegionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF104A31FE9FC4600A9B611 /* BeaconRegionViewModel.swift */; };
 		3DF104A61FEA353400A9B611 /* BeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF104A51FEA353400A9B611 /* BeaconRegion.swift */; };
+		80A41C0F203D02AD004E082A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A41C0E203D02AD004E082A /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		3DF104A01FE9F78E00A9B611 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		3DF104A31FE9FC4600A9B611 /* BeaconRegionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRegionViewModel.swift; sourceTree = "<group>"; };
 		3DF104A51FEA353400A9B611 /* BeaconRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconRegion.swift; sourceTree = "<group>"; };
+		80A41C0E203D02AD004E082A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2F3FCC1FE865B80036B5F9 /* UIViewController+Extension.swift */,
+				80A41C0E203D02AD004E082A /* UIImageView+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2F3FCD1FE865B80036B5F9 /* UIViewController+Extension.swift in Sources */,
+				80A41C0F203D02AD004E082A /* UIImageView+Extension.swift in Sources */,
 				3DA8434D1FA2CBB300260AAA /* HomeViewController.swift in Sources */,
 				3D7DCA7C2011BA300043C8B1 /* NetworkController.swift in Sources */,
 				3DA8434B1FA2CBB300260AAA /* AppDelegate.swift in Sources */,

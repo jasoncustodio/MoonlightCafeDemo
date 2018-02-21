@@ -10,11 +10,13 @@ import Foundation
 
 struct Beacon: Equatable {
   
+  // MARK: - Properties
   let uuid: UUID
   let major: CLBeaconMajorValue
   let minor: CLBeaconMinorValue
   let id: Int
   
+  // MARK: - Constructors
   init(uuid: UUID, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, id: Int) {
     self.uuid = uuid
     self.major = major
@@ -27,18 +29,15 @@ struct Beacon: Equatable {
   }
   
   init?(dict: [String: Any]) {
-    
     guard let uuid = dict["uuid"] as? String,
       let major = dict["major"] as? CLBeaconMajorValue,
       let minor = dict["minor"] as? CLBeaconMinorValue,
-      let id = dict["id"] as? Int else {
-        return nil
-    }
-
+      let id = dict["id"] as? Int else { return nil }
+    
     self.init(uuidString: uuid, major: major, minor: minor, id: id)
   }
   
-    var asString: String {
+  var asString: String {
     get {
       return "\(uuid.uuidString):\(major):\(minor)"
     }
