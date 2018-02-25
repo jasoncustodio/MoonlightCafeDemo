@@ -13,7 +13,14 @@ class HomeViewController: UIViewController {
   
   var beaconRegionViewModel: BeaconRegionViewModel!
   
-  @IBAction func sendNotification(_ sender: Any) {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+  }
+  
+  @objc private func handleTap() {
+    print("Initiating Circle Path")
     
     let notification = Notification(title: "Moonlight Cafe",
                                     subtitle: "SWIPE ME!",

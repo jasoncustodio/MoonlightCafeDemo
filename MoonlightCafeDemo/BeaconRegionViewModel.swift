@@ -22,7 +22,10 @@ final class BeaconRegionViewModel: NSObject {
     super.init()
     self.beaconManager.requestAlwaysAuthorization()
     self.beaconManager.delegate = self
-    getBeaconData()
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      self.getBeaconData()
+    }
   }
   
   // Used only for testing

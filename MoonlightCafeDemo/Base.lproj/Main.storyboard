@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,39 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EpS-D4-Gwx">
-                                <rect key="frame" x="66" y="194" width="243" height="273"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="MoonlightLogo" translatesAutoresizingMaskIntoConstraints="NO" id="EpS-D4-Gwx">
+                                <rect key="frame" x="50" y="200" width="275" height="267"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxe-XH-FLw" customClass="RoundButton" customModule="MoonlightCafeDemo" customModuleProvider="target">
-                                <rect key="frame" x="120" y="597" width="135" height="30"/>
-                                <state key="normal" title="Beacon Demo">
-                                    <color key="titleColor" red="0.9877782464" green="0.99785310029999996" blue="0.93695574999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vpb-0J-JOt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1293984055519104" green="0.12941926717758179" blue="0.12939131259918213" alpha="0.95078675176056338" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="EpS-D4-Gwx" secondAttribute="trailing" constant="50" id="8Cl-Zb-290"/>
-                            <constraint firstItem="Dxe-XH-FLw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="120" id="8hG-zo-FRS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dxe-XH-FLw" secondAttribute="bottom" constant="40" id="9de-ul-rRx"/>
-                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="130" id="H3M-tz-UUT"/>
-                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="XDO-Sb-wcC"/>
-                            <constraint firstAttribute="trailing" secondItem="Dxe-XH-FLw" secondAttribute="trailing" constant="120" id="nDf-9p-dgk"/>
-                            <constraint firstItem="Dxe-XH-FLw" firstAttribute="top" secondItem="EpS-D4-Gwx" secondAttribute="bottom" constant="130" id="vCc-L6-AMR"/>
+                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0Kc-g4-t6A"/>
+                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="2nV-tW-kMr"/>
+                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="200" id="8jF-Dy-dhc"/>
+                            <constraint firstItem="EpS-D4-Gwx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KIZ-EX-xs6"/>
+                            <constraint firstAttribute="trailing" secondItem="EpS-D4-Gwx" secondAttribute="trailing" constant="50" id="bF0-Co-Uip"/>
+                            <constraint firstAttribute="bottom" secondItem="EpS-D4-Gwx" secondAttribute="bottom" constant="200" id="t9m-dE-cHi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MAX-Bm-jre"/>
@@ -262,6 +240,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="640" height="380"/>
+        <image name="MoonlightLogo" width="1800" height="1200"/>
     </resources>
 </document>
