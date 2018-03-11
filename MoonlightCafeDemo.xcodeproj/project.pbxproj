@@ -134,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				3DA8434C1FA2CBB300260AAA /* HomeViewController.swift */,
-				3DA8437B1FA2FE0A00260AAA /* ArtistDetailViewController.swift */,
 				3DEFA332201BA87900BE5217 /* ArtistTableViewController.swift */,
+				3DA8437B1FA2FE0A00260AAA /* ArtistDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

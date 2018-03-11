@@ -15,7 +15,7 @@ class ArtistTableViewController: UIViewController {
   @IBAction func unwindSegue(_ sender: UIStoryboardSegue) { }
   
   // MARK: - Properties
-   var beaconRegionViewModel: BeaconRegionViewModel!
+  var beaconRegionViewModel: BeaconRegionViewModel!
   
   // MARK: - Methods
   override func viewDidLoad() {
@@ -34,9 +34,13 @@ class ArtistTableViewController: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "artistDetail" {
+    guard let identifier = segue.identifier else { return }
+    
+    switch identifier {
+    case "artistDetail":
       let artistController = segue.destination as! ArtistDetailViewController
       artistController.beaconRegionViewModel = self.beaconRegionViewModel
+    default: break
     }
   }
 }
@@ -60,7 +64,6 @@ extension ArtistTableViewController: UITableViewDataSource, UITableViewDelegate 
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     beaconRegionViewModel.setSelectedArtist(indexPath: indexPath)
-    performSegue(withIdentifier: "artistDetail", sender: nil)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

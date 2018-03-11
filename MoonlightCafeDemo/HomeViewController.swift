@@ -20,8 +20,6 @@ class HomeViewController: UIViewController {
   }
   
   @objc private func handleTap() {
-    print("Initiating Circle Path")
-    
     let notification = Notification(title: "Moonlight Cafe",
                                     subtitle: "SWIPE ME!",
                                     body: "Would you like to view Artists?",
